@@ -43,6 +43,16 @@ module.exports = {
         }),
       }),
     });
+
+    /**
+     * @created on Thu Dec 17 2020
+     * @author Emir Marques - <emirdeliz@gmail.com>
+     * This is used to Import images in Next.js 
+     */ 
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
     return config;
   },
   /**
@@ -53,4 +63,4 @@ module.exports = {
    * legacy API usage, and a number of other features.
    */
   reactStrictMode: true,
-}
+};

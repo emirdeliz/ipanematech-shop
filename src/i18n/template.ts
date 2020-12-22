@@ -7,6 +7,10 @@ export interface ILocale {
   welcome: string;
   
   home: {
-    title: string; 
+    title: string;
+    culinar: {
+      shop: string;
+      tooltip: string;
+    }
   }
 }

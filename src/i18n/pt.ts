@@ -9,6 +9,10 @@ export const table: ILocale = {
   welcome: 'Bem vindo {{name}}! 😃', // with variable replacement
 
   home: {
-    title: 'Teste de Frontend', 
+    title: 'Teste de Frontend',
+    culinar: {
+      shop: 'Loja de Culinária',
+      tooltip: 'Selecionar todos os itens da loja'
+    }
   }
 };

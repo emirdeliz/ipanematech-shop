@@ -15,4 +15,4 @@ const Nav = (props: INav) => (
   </NavStyle>
 );
 
-export default React.memo(Nav);
+export default memo(Nav);

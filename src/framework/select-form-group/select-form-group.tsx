@@ -11,7 +11,7 @@ interface ISelectFormGroup {
   label: string;
   value?: number|string;
   options: ISelectOption[];
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const SelectFormGroup = (props: ISelectFormGroup) => (
@@ -28,4 +28,4 @@ const SelectFormGroup = (props: ISelectFormGroup) => (
   </FormGroup>
 );
 
-export default React.memo(SelectFormGroup);
+export default memo(SelectFormGroup);

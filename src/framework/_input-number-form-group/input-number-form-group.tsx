@@ -5,7 +5,7 @@ import React from 'react';
 interface IInputNumberFormGroup {
   label: string;
   value?: number;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputNumberFormGroup = (props: IInputNumberFormGroup) => (
@@ -14,4 +14,4 @@ const InputNumberFormGroup = (props: IInputNumberFormGroup) => (
   </FormGroup>
 );
 
-export default React.memo(InputNumberFormGroup);
+export default memo(InputNumberFormGroup);

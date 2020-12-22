@@ -19,10 +19,10 @@ interface IOption {
 interface ISelect {
   readOnly?: boolean;
   disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
   selectRef?: any;
   value: any;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   children?: any;
 }
 
@@ -33,12 +33,12 @@ interface ISelect {
  *   <Select.Option value='razor-sharp'>aaa</Select.Option>
  * </Select>
  */
-class Select extends React.Component<ISelect> {
+class Select extends Component<ISelect> {
 
   /**
    * The option that should be used inside this select.
    */
-  public static Option: React.SFC<IOption> = (props: IOption) => (
+  public static Option: SFC<IOption> = (props: IOption) => (
     <OptionStyle {...props}>
       {props.children}
     </OptionStyle>

@@ -11,4 +11,4 @@ const Logo = () => (
   </LogoStyle>
 );
 
-export default React.memo(Logo);
+export default memo(Logo);

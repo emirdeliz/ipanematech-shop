@@ -14,4 +14,4 @@ const CurrencyFormGroup = (props: ICurrencyFormGroup) => (
   </FormGroup>
 );
 
-export default React.memo(CurrencyFormGroup);
+export default memo(CurrencyFormGroup);

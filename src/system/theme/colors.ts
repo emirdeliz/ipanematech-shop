@@ -11,22 +11,19 @@
  * =============================================
  */
 export enum ELightColors {
-  body = 'hsl(60, 20%, 95%)',
+  bodyBackgroundColor = 'hsl(60, 20%, 95%)',
   inputCheckboxBorderColor = 'hsl(0, 0%, 80%)',
   inputCheckboxBrandColor = 'hsl(178, 84%, 43%)',
-
-
-  text = '#363537',
-  toggleBorder = '#FFF',
-  background = '#363537',
+  tooltipBackgroundColor = 'hsl(0, 0%, 0%)',
+  tooltipTextColor = 'hsl(0, 0%, 100%)',
+  tableBorderColor = 'hsl(210, 14%, 89%)',
 }
 
 export enum EDarkColors {
-  body = 'hsl(270, 2%, 21%)',
+  bodyBackgroundColor = 'hsl(270, 2%, 21%)',
   inputCheckboxBorderColor = 'hsl(0, 0%, 80%)',
   inputCheckboxBrandColor = 'hsl(178, 84%, 43%)',
-
-  text = '#FAFAFA',
-  toggleBorder = '#6B8096',
-  background = '#999',
+  tooltipBackgroundColor = 'hsl(0, 0%, 100%)',
+  tooltipTextColor = 'hsl(0, 0%, 0%)',
+  tableBorderColor = 'hsl(210, 14%, 89%)',
 }

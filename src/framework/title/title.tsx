@@ -6,7 +6,7 @@
  * This file is responsible for defining the title.
  * ================================================
  */
-import React, { memo } from 'react';
+import React, { CSSProperties, memo } from 'react';
 import { TitleStyle } from './title.style';
 
 interface ITitle {

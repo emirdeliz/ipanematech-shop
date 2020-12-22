@@ -17,7 +17,11 @@ export interface IInputCheckbox extends IInput {
 export const InputCheckbox = memo(forwardRef((props: IInputCheckbox, ref: MutableRefObject<HTMLInputElement>) => {
   return (
     <InputCheckboxContainer>
-      <Component ref={ref} {...props} />
+      <Component
+        {...props}
+        ref={ref} 
+        onClick={(e) => e.stopPropagation()}
+      />
     </InputCheckboxContainer>
   );
 }));

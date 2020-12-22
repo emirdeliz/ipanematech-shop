@@ -7,11 +7,21 @@
  * ================================================
  */
 import styled from 'styled-components';
-import { EMargin } from '@system/theme/margin';
+import { EFontSize } from '@system/theme/font-size';
+import { ELabelSize } from './label';
 
-const LabelStyle = styled.label`
-  margin-bottom: ${EMargin.xSmall};
+const LabelStyle = styled.label<{ size: ELabelSize }>`
   display: inline-block;
+  font-size: ${props => {
+    switch(props.size) {
+      case ELabelSize.small:
+        return EFontSize.small;
+      case ELabelSize.large:
+        return EFontSize.large;
+      default:
+        return EFontSize.normal;
+    }
+  }}
 `;
 
 export default LabelStyle;

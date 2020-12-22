@@ -9,9 +9,16 @@
 import React, { CSSProperties, memo } from 'react';
 import LabelStyle from './label.style';
 
+export enum ELabelSize {
+  small = 'small',
+  normal = 'normal',
+  large = 'large'
+}
+
 interface ILabel {
   children: any;
   style?: CSSProperties;
+  size?: ELabelSize;
 }
 
 export const Label = memo((props: ILabel) => (

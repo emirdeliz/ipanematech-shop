@@ -13,11 +13,8 @@ const FormGroupStyle = styled.div<{ isDirectionRow: boolean }>`
   display: flex;
   flex-direction: ${props => props.isDirectionRow ? 'row' : 'column'};
   margin-bottom: ${EMargin.small};
+  align-items: center;
   text-align: left;
-
-  label {
-    margin-bottom: ${EMargin.none};
-  }
 `;
 
 export default FormGroupStyle;

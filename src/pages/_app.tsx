@@ -8,7 +8,7 @@
  */
 import { I18nProvider } from 'next-rosetta';
 import { ThemeProvider } from 'styled-components';
-import { useTheme } from '@hooks/useTheme';
+import { useTheme } from '@hooks/use-theme';
 import { GlobalStyles } from '@system/theme/global-styles';
 import { ITheme } from '@system/theme/theme';
 import '@assets/styles/globals.css';

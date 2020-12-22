@@ -24,6 +24,7 @@
       "@system/*": ["system/*"],
       "@hooks/*": ["hooks/*"],
       "@i18n/*": ["i18n/*"],
+      "@helpers/*": ["helpers/*"],
       "@api/*": ["api/*"],
       "@assets/*": ["assets/*"]
     }

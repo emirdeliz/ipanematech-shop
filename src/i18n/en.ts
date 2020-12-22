@@ -13,6 +13,13 @@ export const table: ILocale = {
     culinar: {
       shop: 'Culinar Shop',
       tooltip: 'Select all store items'
+    },
+    tableStoreProduct: {
+      name: 'Item Name',
+      nr: 'Item NO.',
+      price: 'Item Price',
+      quantity: 'Quantity',
+      total: 'Total'
     }
   }
 };

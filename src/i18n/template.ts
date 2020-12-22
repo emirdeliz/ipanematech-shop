@@ -12,5 +12,12 @@ export interface ILocale {
       shop: string;
       tooltip: string;
     }
+    tableStoreProduct: {
+      name: string;
+      nr: string;
+      price: string;
+      quantity: string;
+      total: string;
+    }
   }
 }

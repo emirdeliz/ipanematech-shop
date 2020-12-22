@@ -7,12 +7,12 @@
  * ================================================
  */
 import React, { ReactNode } from 'react';
-import Label from '@framework/label/label';
+import { Label } from '@framework/index';
 import FormGroupStyle from './form-group.style';
 
 interface IFormGroup {
   label?: ReactNode;
-  style?: React.CSSProperties;
+  children?: ReactNode;
 }
 
 const renderLabel = (label: ReactNode) => {
@@ -33,9 +33,9 @@ const renderLabel = (label: ReactNode) => {
  * to flag it as obligatory.
  */
 export const FormGroup = (props: IFormGroup) => {
-  const { style, label, children } = props;
+  const { label, children } = props;
   return (
-    <FormGroupStyle {...style}>
+    <FormGroupStyle>
       {renderLabel(label)}
       {children}
     </FormGroupStyle>

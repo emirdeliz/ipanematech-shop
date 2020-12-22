@@ -1,61 +1,42 @@
-import React from 'react';
+/**
+ * =========== (c) 2020 Emir Marques ===========
+ * @created on Mon Dec 22 2020
+ * @author Emir Marques - <emirdeliz@gmail.com>
+ * What is this file?
+ * This file is responsible for defining the select.
+ * ================================================
+ */
+import React, { ChangeEvent, CSSProperties, memo } from 'react';
 import {
   OptionStyle,
   SelectStyle,
 } from './select.style';
 
-/**
- * Props for options.
- */
 interface IOption {
   value: any;
   disabled?: boolean;
   children?: any;
 }
 
-/**
- * Props.
- */
 interface ISelect {
   readOnly?: boolean;
   disabled?: boolean;
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
-  selectRef?: any;
   value: any;
   style?: CSSProperties;
   children?: any;
+  options: Array<IOption>;
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-/**
- * It's the default HTML combo with the style.
- *
- * <Select value=''>
- *   <Select.Option value='razor-sharp'>aaa</Select.Option>
- * </Select>
- */
-class Select extends Component<ISelect> {
-
-  /**
-   * The option that should be used inside this select.
-   */
-  public static Option: SFC<IOption> = (props: IOption) => (
-    <OptionStyle {...props}>
-      {props.children}
-    </OptionStyle>
-  )
-
-  public render() {
-    const { props } = this;
-    return (
-      <SelectStyle
-        {...props}
-        className=''
-        ref={props.selectRef}
-      >
-        {props.children}
-      </SelectStyle>
-    );
-  }
-}
-
-export default Select;
+export const Select = memo((props: ISelect) => {
+  const { options } = props;
+  return (
+    <SelectStyle {...props}>
+      {options.map((opt) => (
+        <OptionStyle {...opt}>
+          {opt.children}
+        </OptionStyle>
+      ))}
+    </SelectStyle>
+  );
+});

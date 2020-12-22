@@ -1,6 +1,5 @@
-import FormGroup from '@framework/form-group/form-group';
-import Select from '@framework/select/select';
-import React from 'react';
+import React, { ChangeEvent, memo } from 'react';
+import { FormGroup, Select } from '@framework/index';
 
 interface ISelectOption {
   label?: string;
@@ -14,7 +13,7 @@ interface ISelectFormGroup {
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const SelectFormGroup = (props: ISelectFormGroup) => (
+export const SelectFormGroup = memo((props: ISelectFormGroup) => (
   <FormGroup label={props.label}>
     <Select onChange={props.onChange} value={props.value}>
       {props.options.map((opt) => {
@@ -26,6 +25,4 @@ const SelectFormGroup = (props: ISelectFormGroup) => (
       })}
     </Select>
   </FormGroup>
-);
-
-export default memo(SelectFormGroup);
+));

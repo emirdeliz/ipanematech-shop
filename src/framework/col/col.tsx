@@ -1,23 +1,23 @@
-import React from 'react';
+/**
+ * =========== (c) 2020 Emir Marques ===========
+ * @created on Mon Dec 22 2020
+ * @author Emir Marques - <emirdeliz@gmail.com>
+ * What is this file?
+ * This file is responsible for defining the col.
+ * This works similar to boostrap columns.
+ * ================================================
+ */
+import React, { CSSProperties, memo } from 'react';
 import ColStyle from './col.style';
 
-/**
- * Props.
- */
 interface ICol {
   size?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 'auto';
-  style?: React.CSSProperties;
-  /**
-   * Optional classname for the column.
-   */
+  style?: CSSProperties;
   className?: string;
   children: any;
 }
 
-/**
- * Bootstrap column, the size is passed in the 'size' prop.
- */
-const Col = (props: ICol) => {
+export const Col = memo((props: ICol) => {
   return (
     <ColStyle
       className={props.className}
@@ -27,6 +27,4 @@ const Col = (props: ICol) => {
       {props.children}
     </ColStyle>
   );
-};
-
-export default Col;
+});

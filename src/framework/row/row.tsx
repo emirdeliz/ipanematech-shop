@@ -1,21 +1,24 @@
-import React from 'react';
+/**
+ * =========== (c) 2020 Emir Marques ===========
+ * @created on Mon Dec 22 2020
+ * @author Emir Marques - <emirdeliz@gmail.com>
+ * What is this file?
+ * This file is responsible for defining the row.
+ * ================================================
+ */
+import React, { memo } from 'react';
 import RowStyle from './row.style';
 
-/**
- * Props.
- */
 interface IRow {
   style?: any;
   children: any;
 }
 
-/**
- * Bootstrap row.
- */
-const Row = (props: IRow) => (
-  <RowStyle style={props.style}>
-    {props.children}
-  </RowStyle>
-);
-
-export default Row;
+export const Row = memo((props: IRow) => {
+  const { style, children } = props;
+  return (
+    <RowStyle style={style}>
+      {children}
+    </RowStyle>
+  );
+});

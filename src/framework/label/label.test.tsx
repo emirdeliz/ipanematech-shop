@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import 'jest-styled-components';
 import React from 'react';
-import Label from './label';
+import { Label } from './label';
 
 describe('Label success tests', () => {
   test('Label is rendering its text', () => {

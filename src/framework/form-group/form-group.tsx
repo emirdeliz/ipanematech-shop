@@ -13,6 +13,12 @@ import FormGroupStyle from './form-group.style';
 interface IFormGroup {
   label?: ReactNode;
   children?: ReactNode;
+  direction?: FormGroupDirection;
+}
+
+export enum FormGroupDirection {
+  column = 'column',
+  row = 'row'
 }
 
 const renderLabel = (label: ReactNode) => {
@@ -33,11 +39,12 @@ const renderLabel = (label: ReactNode) => {
  * to flag it as obligatory.
  */
 export const FormGroup = (props: IFormGroup) => {
-  const { label, children } = props;
+  const { label, children, direction } = props;
+  const isDirectionRow = direction === FormGroupDirection.row; 
   return (
-    <FormGroupStyle>
-      {renderLabel(label)}
-      {children}
+    <FormGroupStyle isDirectionRow={isDirectionRow}>
+      {isDirectionRow ? children: renderLabel(label)}
+      {isDirectionRow ? renderLabel(label) : children}
     </FormGroupStyle>
   );
 }

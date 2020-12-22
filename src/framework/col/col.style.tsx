@@ -8,7 +8,7 @@
  */
 import styled from 'styled-components';
 
-const Col = styled.div<{ size: string }>`
+const ColStyle = styled.div<{ size: string }>`
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -50,4 +50,4 @@ const Col = styled.div<{ size: string }>`
   }
 `;
 
-export default Col;
+export default ColStyle;

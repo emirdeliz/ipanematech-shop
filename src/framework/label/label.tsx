@@ -14,8 +14,6 @@ interface ILabel {
   style?: CSSProperties;
 }
 
-const Label = (props: ILabel) => (
+export const Label = memo((props: ILabel) => (
   <LabelStyle {...props}>{props.children}</LabelStyle>
-);
-
-export default memo(Label);
+));

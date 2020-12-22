@@ -12,45 +12,52 @@ export const InputCheckboxContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @keyframes toggleOnCheckbox {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -85%) scale(0) rotate(45deg);
+    }
+  
+    70% {
+      opacity: 1;
+      transform: translate(-50%, -85%) scale(0.9) rotate(45deg);
+    }
+    
+    100% {
+      transform: translate(-50%, -85%) scale(0.8) rotate(45deg);
+    }
+  }
 `;
 
-const inputCheckboxSize = '16px';
-export const InputCheckbox = styled.input.attrs(props => ({
+const inputCheckboxSize = 16;
+const inputCheckboxBorderRadius = inputCheckboxSize / 4;
+export const InputCheckbox = styled.input.attrs(() => ({
   type: 'checkbox',
 }))`
   position: relative;
   appearance: none;
+  outline: none;
+  box-sizing: content-box;
+  overflow: hidden;
 
   // circle
   &:before {
     content: '';
     display: block;
     box-sizing: content-box;
-    width: ${inputCheckboxSize};
-    height: ${inputCheckboxSize};
+    width: ${inputCheckboxSize}px;
+    height: ${inputCheckboxSize}px;
     border: 2px solid ${props => props.theme.inputCheckboxBorderColor};
+    border-radius: ${inputCheckboxBorderRadius}px;
     transition: 0.2s border-color ease;
-    border-radius: ${inputCheckboxSize} / 4;
   }
-
-  &:after {
-    width: ${inputCheckboxSize} * 0.6;
-    height: ${inputCheckboxSize};
-    border-radius: 0;
-    transform: translate(-50%, -85%) scale(0) rotate(45deg);
-    background-color: transparent;
-    box-shadow: 4px 4px 0px 0px ${props => props.theme.inputCheckboxBrandColor};
-  }
-
+  
   &:checked:before {
     border-color: ${props => props.theme.inputCheckboxBrandColor};
     transition: 0.5s border-color ease;
   }
-
-  &:checked:after {
-    animation: toggleOnCheckbox 0.2s ease forwards;
-  }
-
+  
   &:disabled:before {
     border-color: ${props => props.theme.inputCheckboxBorderColor};
     background-color: ${props => props.theme.inputCheckboxBorderColor};
@@ -65,10 +72,30 @@ export const InputCheckbox = styled.input.attrs(props => ({
     top: 50%;
     left: 50%;
     transform-origin: 50% 50%;
-    background-color: ${props => props.theme.inputCheckboxBrandColor};
-    width: ${inputCheckboxSize};
-    height: ${inputCheckboxSize};
-    border-radius: 100vh;
-    transform: translate(-50%, -50%) scale(0);
+    width: ${inputCheckboxSize * 0.6}px ;
+    height: ${inputCheckboxSize}px;
+    border-radius: 0;
+    transform: translate(-50%, -85%) scale(0) rotate(45deg);
+    background-color: transparent;
+    box-shadow: 4px 4px 0px 0px ${props => props.theme.inputCheckboxBrandColor};
+  }
+
+  &:checked:after {
+    animation: toggleOnCheckbox 0.2s ease forwards;
+  }
+  
+  &.filled  {
+    &:before {
+      border-radius: ${inputCheckboxBorderRadius}px;
+      transition: 0.2s border-color ease, 0.2s background-color ease;
+    }
+    
+    &:checked:not(:disabled):before {
+      background-color: ${props => props.theme.inputCheckboxBrandColor};
+    }
+
+    &:not(:disabled):after {
+      box-shadow: 4px 4px 0px 0px white;
+    }
   }
 `;

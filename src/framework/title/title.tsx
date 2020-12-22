@@ -11,7 +11,7 @@ import { TitleStyle } from './title.style';
 
 interface ITitle {
   children: any;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 export const Title = memo((props: ITitle) => (

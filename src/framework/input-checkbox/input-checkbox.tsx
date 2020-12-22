@@ -6,13 +6,18 @@
  * This file is responsible for defining the input-checkbox.
  * ================================================
  */
-import React from 'react';
+import React, { forwardRef, memo, MutableRefObject } from 'react';
+import { IInput } from '@framework/index';
 import { InputCheckbox as Component, InputCheckboxContainer } from './input-checkbox.style';
 
-export const InputCheckbox = () => {
+export interface IInputCheckbox extends IInput {
+  checked?: boolean;
+}
+
+export const InputCheckbox = memo(forwardRef((props: IInputCheckbox, ref: MutableRefObject<HTMLInputElement>) => {
   return (
     <InputCheckboxContainer>
-      <Component checked />
+      <Component ref={ref} {...props} />
     </InputCheckboxContainer>
   );
-};
+}));

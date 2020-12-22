@@ -8,6 +8,8 @@
  * ================================================
  */
 export enum EPadding {
+  xxSmall = '0.3rem',
+  xSmall = '0.5rem',
   small = '1rem',
   normal = '2rem',
   large = '3rem',

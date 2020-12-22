@@ -8,6 +8,8 @@
  * ================================================
  */
 export enum EMargin {
+  none = '0',
+  xSmall = '.5rem',
   small = '1rem',
   normal = '2rem',
   large = '3rem',

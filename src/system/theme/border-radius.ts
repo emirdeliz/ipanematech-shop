@@ -7,6 +7,7 @@
  * ================================================
  */
 export enum EBorderRadius {
+  none = '0px',
   small = '1px',
   normal = '3px',
   large = '5px',

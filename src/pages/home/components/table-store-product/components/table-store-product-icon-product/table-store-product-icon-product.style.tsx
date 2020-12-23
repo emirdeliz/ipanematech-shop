@@ -1,9 +1,9 @@
 /**
  * =========== (c) 2020 Emir Marques ===========
- * @created on Mon Dec 22 2020
+ * @created on Mon Dec 23 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
  * What is this file?
- * This file is responsible for defining the table-store-product style.
+ * This file is responsible for defining the table-store-product-icon-product style.
  * ================================================
  */
 import styled from 'styled-components';
@@ -19,8 +19,3 @@ export const ProductIconContainer = styled.div`
     margin: ${EMargin.none} ${EMargin.xSmall};
   }
 `; 
-
-export const ProductNameContainer = styled.div`
-  display: flex;
-  align-items: center;
-`

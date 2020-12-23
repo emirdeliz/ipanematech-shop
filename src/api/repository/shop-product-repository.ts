@@ -16,6 +16,6 @@ import mock from '../../__mock__/store-product.json';
  */
 export const ShopProductsRepository = class {
   static findProducts: () => ShopProductModel[] = () => {
-    return mock.map((m) => new ShopProductModel(m.name, m.nr, m.price, m.icon));
+    return mock.map((m) => new ShopProductModel(m.name, m.nr, m.price, m.icon, m.unit));
   }
 }

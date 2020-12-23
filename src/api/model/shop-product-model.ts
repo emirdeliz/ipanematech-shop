@@ -11,12 +11,14 @@ export class ShopProductModel {
   private _nr: number = 0;
   private _price: number = 0;
   private _icon: string = '';
+  private _unit: string = '';
 
-  constructor(name: string, nr: number, price: number, icon: string) {
+  constructor(name: string, nr: number, price: number, icon: string, unit: string) {
     this._name = name;
     this._nr = nr;
     this._price = price;
     this._icon = icon;
+    this._unit = unit;
   }
 
   get name(): string {
@@ -49,5 +51,13 @@ export class ShopProductModel {
 
   set icon(icon: string) {
     this._icon = icon;
+  }
+
+  get unit(): string {
+    return this._unit;
+  }
+
+  set unit(unit: string) {
+    this._unit = unit;
   }
 }

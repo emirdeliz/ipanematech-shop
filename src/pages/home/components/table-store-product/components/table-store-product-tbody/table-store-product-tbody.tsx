@@ -17,13 +17,14 @@ export const TableStoreProductTBody = (props: ITableStoreProduct) => {
   return (
     <Table.TBody>
       {productOptions.map((p, index) => {
-        const { name, nr, price, icon } = p;
+        const { name, nr, price, icon, unit } = p;
         const isSelected = selectedItems.includes(nr);
         return (
           <Table.Row key={index}>
             <Table.Td>
               <ProductNameContainer>
                 <InputCheckboxFormGroup
+                  noMargin
                   checked={isSelected}
                   label={(
                     <>
@@ -39,13 +40,13 @@ export const TableStoreProductTBody = (props: ITableStoreProduct) => {
               <LabelStoreProduct>{nr}</LabelStoreProduct>
             </Table.Td>
             <Table.Td alignContent={ECellAlign.right}>
-              <LabelStoreProduct>{price}</LabelStoreProduct>
+              <LabelStoreProduct>{price} €/{unit}</LabelStoreProduct>
             </Table.Td>
             <Table.Td alignContent={ECellAlign.right}>
-              <LabelStoreProduct>{p.price} PCS</LabelStoreProduct>
+              <LabelStoreProduct>{p.price} {unit}</LabelStoreProduct>
             </Table.Td>
             <Table.Td alignContent={ECellAlign.right}>
-              <LabelStoreProduct>{p.price} €</LabelStoreProduct>
+              <LabelStoreProduct.Bold>{p.price} €</LabelStoreProduct.Bold>
             </Table.Td>
           </Table.Row>
         );

@@ -13,15 +13,16 @@ import InputCheckboxFormGroupStyle from './input-checkbox-form-group.style';
 interface IInputCheckboxFormGroup {
   label: ReactNode;
   checked?: boolean;
+  noMargin?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const InputCheckboxFormGroup = memo((props: IInputCheckboxFormGroup) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const { label, checked, onChange } = props;
+  const { label, checked, noMargin, onChange } = props;
   return (
     <InputCheckboxFormGroupStyle onClick={() => inputRef.current.click()}>
-      <FormGroup label={label} direction={FormGroupDirection.row}>
+      <FormGroup label={label} direction={FormGroupDirection.row} noMargin={noMargin}>
         <InputCheckbox ref={inputRef} checked={checked} onChange={onChange} />
       </FormGroup>
     </InputCheckboxFormGroupStyle>

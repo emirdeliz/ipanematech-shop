@@ -9,10 +9,10 @@
 import styled from 'styled-components';
 import { EMargin } from '@system/theme/margin';
 
-const FormGroupContainer = styled.div<{ isDirectionRow: boolean }>`
+const FormGroupContainer = styled.div<{ isDirectionRow: boolean, noMargin?: boolean }>`
   display: flex;
   flex-direction: ${props => props.isDirectionRow ? 'row' : 'column'};
-  margin-bottom: ${EMargin.small};
+  margin-bottom: ${props => props.noMargin ? 0 : EMargin.small};
   align-items: center;
   text-align: left;
 `;

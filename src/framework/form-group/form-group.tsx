@@ -13,6 +13,7 @@ import { FormGroupContainer, LabelContainer } from './form-group.style';
 interface IFormGroup {
   label?: ReactNode;
   children?: ReactNode;
+  noMargin?: boolean;
   direction?: FormGroupDirection;
 }
 
@@ -50,10 +51,10 @@ const renderLabel = (label: ReactNode) => {
  * to flag it as obligatory.
  */
 export const FormGroup = (props: IFormGroup): JSX.Element => {
-  const { label, children, direction } = props;
+  const { label, children, direction, noMargin } = props;
   const isDirectionRow = direction === FormGroupDirection.row; 
   return (
-    <FormGroupContainer isDirectionRow={isDirectionRow}>
+    <FormGroupContainer isDirectionRow={isDirectionRow} noMargin={noMargin}>
       {isDirectionRow ? children: renderLabel(label)}
       {isDirectionRow ? renderLabel(label) : children}
     </FormGroupContainer>

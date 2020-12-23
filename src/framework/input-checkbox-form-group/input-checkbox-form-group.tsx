@@ -6,12 +6,12 @@
  * This file is responsible for defining the input-checkbox-form-group.
  * ================================================
  */
-import React, { ChangeEvent, memo, useRef } from 'react';
+import React, { ChangeEvent, memo, ReactNode, useRef } from 'react';
 import { FormGroup, FormGroupDirection, InputCheckbox } from '@framework/index';
 import InputCheckboxFormGroupStyle from './input-checkbox-form-group.style';
 
 interface IInputCheckboxFormGroup {
-  label: string;
+  label: ReactNode;
   checked?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -27,3 +27,5 @@ export const InputCheckboxFormGroup = memo((props: IInputCheckboxFormGroup) => {
     </InputCheckboxFormGroupStyle>
   );
 });
+
+InputCheckboxFormGroup.displayName = 'input-checkbox-form-group';

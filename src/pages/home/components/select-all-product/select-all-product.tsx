@@ -16,7 +16,7 @@ interface ISelectAllProduct {
   onSelectAll: (selected: boolean) => void;
 }
 
-export const SelectAllProduct = (props: ISelectAllProduct) => {
+export const SelectAllProduct = (props: ISelectAllProduct): JSX.Element => {
   const t = useTranslate();
   const { selectAll, onSelectAll } = props;
   return (

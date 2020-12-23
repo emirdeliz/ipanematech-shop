@@ -7,6 +7,7 @@
  * ================================================
  */
 import styled from 'styled-components';
+import { EBorderRadius } from '@system/theme/border-radius';
 
 export const InputCheckboxContainer = styled.div`
   display: flex;
@@ -41,7 +42,6 @@ export const InputCheckbox = styled.input.attrs(() => ({
   box-sizing: content-box;
   overflow: hidden;
 
-  // circle
   &:before {
     content: '';
     display: block;
@@ -63,7 +63,6 @@ export const InputCheckbox = styled.input.attrs(() => ({
     background-color: ${props => props.theme.inputCheckboxBorderColor};
   }
 
-  // dot
   &:after {
     content: '';
     display: block;
@@ -74,7 +73,7 @@ export const InputCheckbox = styled.input.attrs(() => ({
     transform-origin: 50% 50%;
     width: ${inputCheckboxSize * 0.6}px ;
     height: ${inputCheckboxSize}px;
-    border-radius: 0;
+    border-radius: ${EBorderRadius.none};
     transform: translate(-50%, -85%) scale(0) rotate(45deg);
     background-color: transparent;
     box-shadow: 4px 4px 0px 0px ${props => props.theme.inputCheckboxBrandColor};
@@ -95,7 +94,7 @@ export const InputCheckbox = styled.input.attrs(() => ({
     }
 
     &:not(:disabled):after {
-      box-shadow: 4px 4px 0px 0px white;
+      box-shadow: 4px 4px 0px 0px hsl(0, 0%, 100%);
     }
   }
 `;

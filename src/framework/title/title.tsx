@@ -6,14 +6,16 @@
  * This file is responsible for defining the title.
  * ================================================
  */
-import React, { CSSProperties, memo } from 'react';
+import React, { CSSProperties, memo, ReactNode } from 'react';
 import { TitleStyle } from './title.style';
 
 interface ITitle {
-  children: any;
+  children: ReactNode;
   style?: CSSProperties;
 }
 
 export const Title = memo((props: ITitle) => (
   <TitleStyle {...props}>{props.children}</TitleStyle>
 ));
+
+Title.displayName = 'title';

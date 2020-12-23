@@ -9,7 +9,7 @@
 import { useI18n } from 'next-rosetta';
 import { ILocale } from '@i18n/template';
 
-export const useTranslate = () => {
+export const useTranslate = (): <X extends ILocale[] | Record<string, ILocale>>(key: string | (string | number)[], params?: X, lang?: string) => string => {
   const i18n = useI18n<ILocale>();
   const { t } = i18n;
   return t;

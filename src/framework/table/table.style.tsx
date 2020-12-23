@@ -24,7 +24,7 @@ export const TBody = styled.tbody`
 export const Tr = styled.tr`
 `;
 
-export const Th = styled.th<{ alignContent: ECellAlign }>`
+export const Th = styled.th<{ alignContent?: ECellAlign }>`
   text-align: ${props => props.alignContent || ECellAlign.left};
   padding: ${EPadding.xSmall};
   border-top: solid 1px ${props => props.theme.tableBorderColor};
@@ -32,7 +32,7 @@ export const Th = styled.th<{ alignContent: ECellAlign }>`
   text-transform: uppercase;
 `;
 
-export const Td = styled.td<{ alignContent: ECellAlign }>`
+export const Td = styled.td<{ alignContent?: ECellAlign }>`
   text-align: ${props => props.alignContent || ECellAlign.left};
   padding: ${EPadding.xSmall};
 `;

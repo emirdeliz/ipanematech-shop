@@ -7,8 +7,15 @@
  * =============================================
  */
 import { useEffect, useState, useCallback } from 'react';
-import { EThemeType, LightTheme, DarkTheme } from '@system/theme/theme';
-export const useTheme = () => {
+import { EThemeType, LightTheme, DarkTheme, ITheme } from '@system/theme/theme';
+
+interface IUseTheme {
+  themeType: EThemeType;
+  themeToggler: () => void;
+  theme: ITheme;
+}
+
+export const useTheme = (): IUseTheme => {
   const [themeType, setThemeType] = useState<EThemeType>(EThemeType.light);
   const setMode = (mode: EThemeType) => {
     window.localStorage.setItem('themeType', mode);

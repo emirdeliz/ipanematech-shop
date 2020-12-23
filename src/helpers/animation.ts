@@ -6,7 +6,7 @@
  * This file helpers responsible for defining the animations.
  * ================================================
  */
-import { keyframes } from "styled-components";
+import { Keyframes, keyframes } from "styled-components";
 
 /**
  * Returns keyframes for an opacity animation. By default this returns an opacity
@@ -14,7 +14,7 @@ import { keyframes } from "styled-components";
  * a true in the parameter (it will range from visible to invisible).
  * Usage: `animation: ${opacity()} .3s;`
  */
-const opacity = (reverse?: boolean) => {
+const opacity = (reverse?: boolean): Keyframes => {
   return keyframes`
     from { opacity: ${reverse ? 1 : 0} }
     to { opacity: ${reverse ? 0 : 1} }

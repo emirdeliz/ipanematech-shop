@@ -25,3 +25,5 @@ export const InputCheckbox = memo(forwardRef((props: IInputCheckbox, ref: Mutabl
     </InputCheckboxContainer>
   );
 }));
+
+InputCheckbox.displayName = 'input-checkbox';

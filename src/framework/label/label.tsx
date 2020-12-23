@@ -6,7 +6,7 @@
  * This file is responsible for defining the label.
  * ================================================
  */
-import React, { CSSProperties, memo } from 'react';
+import React, { CSSProperties, memo, ReactNode } from 'react';
 import LabelStyle from './label.style';
 
 export enum ELabelSize {
@@ -16,7 +16,7 @@ export enum ELabelSize {
 }
 
 interface ILabel {
-  children: any;
+  children: ReactNode;
   style?: CSSProperties;
   size?: ELabelSize;
 }
@@ -24,3 +24,5 @@ interface ILabel {
 export const Label = memo((props: ILabel) => (
   <LabelStyle {...props}>{props.children}</LabelStyle>
 ));
+
+Label.displayName = 'label';

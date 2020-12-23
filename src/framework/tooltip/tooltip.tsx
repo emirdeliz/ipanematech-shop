@@ -14,13 +14,15 @@ import React, {
   useState,
   useRef,
   useImperativeHandle,
-  MutableRefObject
+  ReactNode,
+  MutableRefObject,
+  ReactPropTypes
 } from 'react';
-import { withFloat } from '@framework/index';
+import { withFloat, TComponentTarget } from '@framework/index';
 import { mobileMedia } from '@helpers/media-query';
 import { TooltipContainer, Arrow } from './tooltip.style';
 
-interface ITooltip {
+type ITooltipPopup = {
   color?: string;
   invisible?: boolean;
   width?: number;
@@ -28,7 +30,7 @@ interface ITooltip {
    * If the tooltip can be hovered over.
    */
   hoverable?: boolean;
-  title: any;
+  title: ReactNode;
   /**
    * Optional style for the container.
    */
@@ -37,22 +39,22 @@ interface ITooltip {
    * Both of these props are here because we use the `withFloat` property of the floating element component.
    * For more information on why they are passed and how they are used, check out the `FloatingElement.sx` component.
    */
-  _floatingElementAnchor?: any;
-  _floatingElementStyle?: any;
+  _floatingElementAnchor?: HTMLElement;
+  _floatingElementStyle?: CSSProperties;
   /**
    * The children of the tooltip, the actual content.
    */
-  children?: any;
+  children?: ReactNode;
   onMouseOver?: () => void;
   onMouseLeave?: () => void;
-  ref?: any;
-}
+  ref?: MutableRefObject<HTMLElement>;
+} & TComponentTarget;
 
 /**
  * This is the actual popup. This uses the `Floating element` approach, to understand it a little bit more,
  * check out the FloatingElement component.
  */
-const TooltipPopup = withFloat((props: ITooltip) => {
+const TooltipPopup = withFloat((props: ITooltipPopup): JSX.Element => {
   const refContainer = useRef(null);
   const [arrowLeftPosition, setArrowLeftPosition] = useState(null);
 
@@ -60,7 +62,7 @@ const TooltipPopup = withFloat((props: ITooltip) => {
     if (props._floatingElementStyle.left) { // We have the position of our container
       // Here we calculate the position of the little arrow below this container
       const anchorLeft = props._floatingElementAnchor.getBoundingClientRect().left;
-      const containerLeft = props._floatingElementStyle.left;
+      const containerLeft = Number(props._floatingElementStyle.left);
       // If the position of the container does not match the position of the anchor (the element we're hovering),
       // then we modify the position of the arrow to follow the anchor.
       const isDiff = Math.abs(containerLeft - anchorLeft) >= 2;
@@ -96,18 +98,30 @@ const TooltipPopup = withFloat((props: ITooltip) => {
   );
 });
 
+interface ITooltip extends ReactPropTypes {
+  invisible: boolean;
+  children: ReactNode;
+  title: ReactNode,
+  style?: CSSProperties;
+  hoverable?: boolean;
+}
+
+type TTooltipMutableRefObject = {
+  open: () => void
+} | null;
+
 /**
  * This is the wrapper of the tooltip, and it servers the purpose of only being a place
  * to hold both the popup of the tooltip and the actual contents as children.
  *
  * This handles the actions when you hover over the children to show the popup, for example.
  */
-export const Tooltip = memo(forwardRef((props: ITooltip, ref: any) => {
+export const Tooltip = memo(forwardRef((props: ITooltip, ref: MutableRefObject<TTooltipMutableRefObject>) => {
   const refTooltip = useRef(null); // Ref of the actual tooltip popup
   const refDivContents = useRef(null); // Ref of the container of the contents
   const timeout = useRef(null);
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const { invisible, title, style, children } = props;
+  const { invisible, title, style, hoverable, children } = props;
 
   useEffect(() => {
     const isMobile = window.innerWidth <= mobileMedia.size;
@@ -133,7 +147,7 @@ export const Tooltip = memo(forwardRef((props: ITooltip, ref: any) => {
    * Closes the tooltip.
    */
   const close = () => {
-    if (props.hoverable) {
+    if (hoverable) {
       timeout.current = setTimeout(() => {
         if (refTooltip.current) {
           refTooltip.current.close();
@@ -150,7 +164,7 @@ export const Tooltip = memo(forwardRef((props: ITooltip, ref: any) => {
   const extraTooltipProps = {
     onMouseLeave: () => close(),
     onMouseOver: () => clearTimeout(timeout.current),
-  } as any;
+  };
 
   return (
     <>
@@ -182,3 +196,5 @@ export const Tooltip = memo(forwardRef((props: ITooltip, ref: any) => {
     </>
   );
 }));
+
+Tooltip.displayName = 'tooltip';

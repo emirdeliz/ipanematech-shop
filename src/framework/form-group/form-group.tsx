@@ -8,7 +8,7 @@
  */
 import React, { ReactNode } from 'react';
 import { Label } from '@framework/index';
-import FormGroupStyle from './form-group.style';
+import { FormGroupContainer, LabelContainer } from './form-group.style';
 
 interface IFormGroup {
   label?: ReactNode;
@@ -22,11 +22,22 @@ export enum FormGroupDirection {
 }
 
 const renderLabel = (label: ReactNode) => {
-  return label ? (
-    <Label style={{ display: 'block', fontWeight: 'bold' }}>
-      {label}
-    </Label>
-  ) : null;
+  if (!label) {
+    return null;
+  }
+
+  const isStringLabel = label instanceof String;
+  if (isStringLabel) {
+    return (
+      <Label style={{ display: 'block', fontWeight: 'bold' }}>
+        {label}
+      </Label>
+    );
+  }
+
+  return (
+    <LabelContainer>{label}</LabelContainer>
+  );
 }
 
 /**
@@ -38,13 +49,13 @@ const renderLabel = (label: ReactNode) => {
  * You can specify if the form group is required and a label will get a red asterisk
  * to flag it as obligatory.
  */
-export const FormGroup = (props: IFormGroup) => {
+export const FormGroup = (props: IFormGroup): JSX.Element => {
   const { label, children, direction } = props;
   const isDirectionRow = direction === FormGroupDirection.row; 
   return (
-    <FormGroupStyle isDirectionRow={isDirectionRow}>
+    <FormGroupContainer isDirectionRow={isDirectionRow}>
       {isDirectionRow ? children: renderLabel(label)}
       {isDirectionRow ? renderLabel(label) : children}
-    </FormGroupStyle>
+    </FormGroupContainer>
   );
 }

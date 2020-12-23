@@ -17,7 +17,13 @@ import React, {
   useRef,
   useEffect,
   useImperativeHandle,
-  Ref
+  Ref,
+  ReactElement,
+  ReactPortal,
+  ReactPropTypes,
+  ForwardRefExoticComponent,
+  RefAttributes,
+  FunctionComponent
 } from 'react';
 import ReactDOM from 'react-dom';
 import {
@@ -29,9 +35,9 @@ type TargetSide = 'top' | 'bottom' | 'left' | 'right';
 
 interface IFloatingElement {
   side?: TargetSide;
-  anchor: any;
+  anchor: HTMLElement;
   opened?: boolean;
-  children?: any;
+  children?: ReactElement;
 }
 
 /**
@@ -40,7 +46,7 @@ interface IFloatingElement {
  * Renders an absolutely positioned div that does not allow children to be out of screen bounds.
  * This component should not be used directly, instead, it should be used with `withFloat`.
  */
-const FloatingElement = (props: IFloatingElement) => {
+const FloatingElement = (props: IFloatingElement): ReactPortal => {
   const [style, setStyle] = useState<CSSProperties>({});
   const containerRef = useRef<HTMLDivElement>(null); // The container of this element
 
@@ -82,7 +88,7 @@ const FloatingElement = (props: IFloatingElement) => {
  */
 const getIdealPosition = (side: TargetSide, anchorBounds: ClientRect, containerBounds: ClientRect) => {
   const { width, height } = containerBounds;
-  const style: any = {};
+  const style: CSSProperties = {};
 
   if (side === 'right') {
     // Right - The component will start at the end of the anchor, in the same Y-axis.
@@ -115,6 +121,17 @@ const getIdealPosition = (side: TargetSide, anchorBounds: ClientRect, containerB
   return style;
 }
 
+type TReffedComponent = {
+  close: () => void,
+  open: () => void;
+  isOpen: () => boolean,
+}
+
+export type TComponentTarget = {
+  _floatingElementAnchor: HTMLElement,
+  close: () => void,
+};
+
 /**
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com> 
@@ -124,10 +141,10 @@ const getIdealPosition = (side: TargetSide, anchorBounds: ClientRect, containerB
  * The main idea is to replace elements that need to be validated to be in the screen bounds, like
  * dropdowns or tooltips.
  */
-const withFloat = (ComponentTarget: any) => {
-  const ReffedComponent = (props: any, ref: Ref<any>) => {
-    const [anchor, setAnchor] = useState(null);
-    const [opened, setOpened] = useState(false);
+const withFloat = (ComponentTarget: FunctionComponent<TComponentTarget>): ForwardRefExoticComponent<ReactPropTypes & RefAttributes<TReffedComponent>> => {
+  const ReffedComponent = (props: ReactPropTypes, ref: Ref<TReffedComponent>) => {
+    const [anchor, setAnchor] = useState<HTMLElement>(null);
+    const [opened, setOpened] = useState<boolean>(false);
     const [side, setSide] = useState<TargetSide>('bottom');
 
     useEffect(() => {
@@ -154,7 +171,7 @@ const withFloat = (ComponentTarget: any) => {
     useImperativeHandle(ref, () => ({
       close: () => setOpened(false),
       isOpen: () => opened,
-      open: (a?: any, s?: TargetSide) => {
+      open: (a?: HTMLElement, s?: TargetSide) => {
         setAnchor(a);
         setSide(s);
         setOpened(true);

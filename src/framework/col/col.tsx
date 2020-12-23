@@ -7,14 +7,14 @@
  * This works similar to boostrap columns.
  * ================================================
  */
-import React, { CSSProperties, memo } from 'react';
+import React, { CSSProperties, memo, ReactNode } from 'react';
 import ColStyle from './col.style';
 
 interface ICol {
   size?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 'auto';
   style?: CSSProperties;
   className?: string;
-  children: any;
+  children: ReactNode;
 }
 
 export const Col = memo((props: ICol) => {
@@ -28,3 +28,5 @@ export const Col = memo((props: ICol) => {
     </ColStyle>
   );
 });
+
+Col.displayName = 'col';

@@ -7,6 +7,11 @@
  * ================================================
  */
 export class ShopProductModel {
+  private _name: string = '';
+  private _nr: number = 0;
+  private _price: number = 0;
+  private _icon: string = '';
+
   constructor(name: string, nr: number, price: number, icon: string) {
     this._name = name;
     this._nr = nr;
@@ -14,12 +19,7 @@ export class ShopProductModel {
     this._icon = icon;
   }
 
-  private _name: string = '';
-  private _nr: number = 0;
-  private _price: number = 0;
-  private _icon: string = '';
-
-  get name() {
+  get name(): string {
     return this._name;
   }
 
@@ -27,7 +27,7 @@ export class ShopProductModel {
     this._name = name;
   }
 
-  get nr() {
+  get nr(): number {
     return this._nr;
   }
 
@@ -35,7 +35,7 @@ export class ShopProductModel {
     this._nr = nr;
   }
 
-  get price() {
+  get price(): number {
     return this._price;
   }
 
@@ -43,7 +43,7 @@ export class ShopProductModel {
     this._price = price;
   }
 
-  get icon() {
+  get icon(): string {
     return this._icon;
   }
 

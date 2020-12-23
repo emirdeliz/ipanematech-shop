@@ -8,6 +8,7 @@
  * pages skip the definition of the surrounding document's markup.
  * =============================================
  */
+import React from 'react';
 import Document, { DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
@@ -45,13 +46,19 @@ const _injectStyledComponents = async(ctx: DocumentContext) => {
   }
 }
 
+interface IShopDocument {
+  styles: JSX.Element;
+  html: string;
+  head?: JSX.Element[];
+}
+
 /**
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
  * This method is responsible for obtaining the initial props
  */
 export default class ShopDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(ctx: DocumentContext): Promise<IShopDocument> {
     return await _injectStyledComponents(ctx);
-  };
+  }
 }

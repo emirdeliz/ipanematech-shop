@@ -9,7 +9,7 @@
 import styled from 'styled-components';
 import { EMargin } from '@system/theme/margin';
 
-const FormGroupStyle = styled.div<{ isDirectionRow: boolean }>`
+const FormGroupContainer = styled.div<{ isDirectionRow: boolean }>`
   display: flex;
   flex-direction: ${props => props.isDirectionRow ? 'row' : 'column'};
   margin-bottom: ${EMargin.small};
@@ -17,4 +17,14 @@ const FormGroupStyle = styled.div<{ isDirectionRow: boolean }>`
   text-align: left;
 `;
 
-export default FormGroupStyle;
+const LabelContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export {
+  FormGroupContainer,
+  LabelContainer
+}

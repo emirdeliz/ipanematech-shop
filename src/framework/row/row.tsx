@@ -6,12 +6,12 @@
  * This file is responsible for defining the row.
  * ================================================
  */
-import React, { memo } from 'react';
+import React, { memo, CSSProperties, ReactNode } from 'react';
 import RowStyle from './row.style';
 
 interface IRow {
-  style?: any;
-  children: any;
+  style?: CSSProperties;
+  children: ReactNode;
 }
 
 export const Row = memo((props: IRow) => {
@@ -22,3 +22,5 @@ export const Row = memo((props: IRow) => {
     </RowStyle>
   );
 });
+
+Row.displayName = 'row';

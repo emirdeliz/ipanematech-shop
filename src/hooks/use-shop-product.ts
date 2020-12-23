@@ -10,7 +10,13 @@ import { useEffect, useState } from 'react';
 import { ShopProductsRepository } from '@api/repository/shop-product-repository';
 import { ShopProductModel } from '@api/model/shop-product-model';
 
-export const useShopProduct = () => {
+interface IUseProduct {
+  findProducts: () => Promise<Array<ShopProductModel>>;
+  products: Array<ShopProductModel>;
+  loading: boolean;
+}
+
+export const useShopProduct = (): IUseProduct => {
   const [products, setProducts] = useState<Array<ShopProductModel>>([]);
   const [loading, setLoading] = useState<boolean>(false);
 

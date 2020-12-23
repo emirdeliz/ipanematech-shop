@@ -26,8 +26,6 @@ interface ITd {
   alignContent?: ECellAlign
 }
 
-interface ITh extends ITd {}
-
 interface IRow {
   children: ReactNode
 }
@@ -48,7 +46,7 @@ const Td = (props: ITd) => {
   return <TdStyle {...props}>{props.children}</TdStyle>
 }
 
-const Th = (props: ITh) => {
+const Th = (props: ITd) => {
   return <ThStyle {...props}>{props.children}</ThStyle>
 }
 
@@ -64,7 +62,7 @@ const TBody = (props: ITBody) => {
   return <TBodyStyle {...props}>{props.children}</TBodyStyle>
 }
 
-export const Table = (props: ITable) => {
+export const Table = (props: ITable): JSX.Element => {
   const { children } = props;
   return (
     <TableStyle>

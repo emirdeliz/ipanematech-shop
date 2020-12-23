@@ -7,10 +7,10 @@
  * according to W3C and bootstrap.
  * ================================================
  */
-import { css } from "styled-components";
+import { css, FlattenSimpleInterpolation } from "styled-components";
 
 /* Extra Small Devices, Phones */
-const mobileMedia = (callback: () => any) => css`
+const mobileMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @media only screen and (max-width : 480px) {
     ${callback()}
   }
@@ -18,14 +18,14 @@ const mobileMedia = (callback: () => any) => css`
 mobileMedia.size = 480;
 
 /* For everything that is not small devices, phones */
-const notMobileMedia = (callback: () => any) => css`
+const notMobileMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @media only screen and (min-width : 480px) {
     ${callback()}
   }
 `;
 
 /* Small Devices, Small Tablets */
-const miniTabletMedia = (callback: () => any) => css`
+const miniTabletMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @media only screen and (max-width : 768px) {
     ${callback()}
   }
@@ -33,7 +33,7 @@ const miniTabletMedia = (callback: () => any) => css`
 miniTabletMedia.size = 768;
 
 /* Medium Devices, Tablets */
-const tabletMedia = (callback: () => any) => css`
+const tabletMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @media only screen and (max-width : 992px) {
     ${callback()}
   }
@@ -41,21 +41,21 @@ const tabletMedia = (callback: () => any) => css`
 tabletMedia.size = 992;
 
 /* Medium Devices, Tablets */
-const greaterThanTabletMedia = (callback: () => any) => css`
+const greaterThanTabletMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @media only screen and (min-width : 993px) {
     ${callback()}
   }
 `;
 
 /* Desktop */
-const lowerThanDesktopMedia = (callback: () => any) => css`
+const lowerThanDesktopMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @media only screen and (max-width : 1200px) {
     ${callback()}
   }
 `;
 
 /* Desktop */
-const desktopMedia = (callback: () => any) => css`
+const desktopMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @media only screen and (min-width : 1200px) {
     ${callback()}
   }
@@ -63,14 +63,14 @@ const desktopMedia = (callback: () => any) => css`
 desktopMedia.size = 1200;
 
 /* Firefox, any version */
-const firefoxMedia = (callback: () => any) => `
+const firefoxMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @-moz-document url-prefix() {
     ${callback()}
   }
 `;
 
 /* IE, 10+ */
-const ieMedia = (callback: () => any) => css`
+const ieMedia = (callback: () => FlattenSimpleInterpolation): FlattenSimpleInterpolation => css`
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     ${callback()}
   }

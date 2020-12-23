@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ERoute } from '@system/routes';
 
-const Root = () => {
+const Root = (): null => {
   const router = useRouter();
   useEffect(() => {
     router.replace(ERoute.home);

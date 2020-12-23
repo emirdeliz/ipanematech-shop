@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { EFontSize } from '@system/theme/font-size';
 import { ELabelSize } from './label';
 
-const LabelStyle = styled.label<{ size: ELabelSize }>`
+const LabelStyle = styled.label<{ size?: ELabelSize }>`
   display: inline-block;
   font-size: ${props => {
     switch(props.size) {

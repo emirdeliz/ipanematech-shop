@@ -9,11 +9,11 @@
 import React, { ReactNode } from 'react';
 import { Label, ELabelSize } from '@framework/index';
 
-interface LabelStoreProduct {
+interface ILabelStoreProduct {
   children: ReactNode
 }
 
-export const LabelStoreProduct = (props: LabelStoreProduct) => {
+export const LabelStoreProduct = (props: ILabelStoreProduct) => {
   return (
     <Label size={ELabelSize.small}>
       {props.children}

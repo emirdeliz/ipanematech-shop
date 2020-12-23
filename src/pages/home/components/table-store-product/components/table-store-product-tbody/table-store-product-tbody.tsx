@@ -12,9 +12,7 @@ import { TableStoreProductIcon, LabelStoreProduct } from '..';
 import { ITableStoreProduct } from '../../table-store-product';
 import { ProductNameContainer } from './table-store-product-tbody.style';
 
-interface ITableStoreProductTBody extends ITableStoreProduct {}
-
-export const TableStoreProductTBody = (props: ITableStoreProductTBody) => {
+export const TableStoreProductTBody = (props: ITableStoreProduct) => {
   const { selectedItems, productOptions, onSelectedItem } = props;
   return (
     <Table.TBody>

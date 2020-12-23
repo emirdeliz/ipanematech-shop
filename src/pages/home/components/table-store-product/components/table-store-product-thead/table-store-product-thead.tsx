@@ -6,6 +6,7 @@
  * This file is responsible for defining the table-store-product-thead.
  * ================================================
  */
+import React from 'react';
 import { useTranslate } from '@hooks/use-translate';
 import { Table, ECellAlign } from '@framework/index';
 import { LabelStoreProduct } from '..';

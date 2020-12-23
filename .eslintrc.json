@@ -1,27 +1,30 @@
 {
-  "extends": [
-    "eslint:all",
-    "plugin:react/all",
-    "plugin:import/errors",
-    "plugin:import/warnings"
-  ],
-  "rules": {
-    "react/react-in-jsx-scope": "off"
-  },
-  "globals": {
-    "React": "writable"
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
   "env": {
     "browser": true,
-    "es2020": true,
-    "node": true,
-    "jest": true
+    "es2021": true
   },
-  "ignorePatterns": ["node_modules/", ".next/"]
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off"
+  }
 }

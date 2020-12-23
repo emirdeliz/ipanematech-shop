@@ -7,16 +7,30 @@
  * ================================================
  */
 import React, { ReactNode } from 'react';
+import { EFontWeight } from '@system/theme/font-weight';
 import { Label, ELabelSize } from '@framework/index';
+import { CSSProperties } from 'styled-components';
 
 interface ILabelStoreProduct {
-  children: ReactNode
+  children: ReactNode;
+  style?: CSSProperties;
 }
 
 export const LabelStoreProduct = (props: ILabelStoreProduct) => {
+  const { children } = props;
   return (
     <Label size={ELabelSize.small}>
-      {props.children}
+      {children}
     </Label>
+  );
+}
+
+LabelStoreProduct.Bold = (props: ILabelStoreProduct) => {
+  const { style } = props;
+  return (
+    <LabelStoreProduct
+      {...props}
+      style={{ ...style, fontWeight: EFontWeight.bold }}
+    />
   );
 }

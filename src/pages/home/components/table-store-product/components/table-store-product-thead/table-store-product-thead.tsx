@@ -17,19 +17,19 @@ export const TableStoreProductTHead = () => {
     <Table.THead>
       <Table.Row>
         <Table.Th>
-          <LabelStoreProduct>{t('home.tableStoreProduct.name')}</LabelStoreProduct>
+          <LabelStoreProduct.Bold>{t('home.tableStoreProduct.name')}</LabelStoreProduct.Bold>
         </Table.Th>
         <Table.Th>
-          <LabelStoreProduct>{t('home.tableStoreProduct.nr')}</LabelStoreProduct>
+          <LabelStoreProduct.Bold>{t('home.tableStoreProduct.nr')}</LabelStoreProduct.Bold>
         </Table.Th>
         <Table.Th alignContent={ECellAlign.right}>
-          <LabelStoreProduct>{t('home.tableStoreProduct.price')}</LabelStoreProduct>
+          <LabelStoreProduct.Bold>{t('home.tableStoreProduct.price')}</LabelStoreProduct.Bold>
         </Table.Th>
         <Table.Th alignContent={ECellAlign.right}>
-          <LabelStoreProduct>{t('home.tableStoreProduct.quantity')}</LabelStoreProduct>
+          <LabelStoreProduct.Bold>{t('home.tableStoreProduct.quantity')}</LabelStoreProduct.Bold>
         </Table.Th>
         <Table.Th alignContent={ECellAlign.right}>
-          <LabelStoreProduct>{t('home.tableStoreProduct.total')}</LabelStoreProduct>
+          <LabelStoreProduct.Bold>{t('home.tableStoreProduct.total')}</LabelStoreProduct.Bold>
         </Table.Th>
       </Table.Row>
     </Table.THead>

@@ -43,7 +43,7 @@ interface IFloatingElement {
 /**
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
- * Renders an absolutely positioned div that does not allow children to be out of screen bounds.
+ * @description Renders an absolutely positioned div that does not allow children to be out of screen bounds.
  * This component should not be used directly, instead, it should be used with `withFloat`.
  */
 const FloatingElement = (props: IFloatingElement): ReactPortal => {
@@ -83,7 +83,7 @@ const FloatingElement = (props: IFloatingElement): ReactPortal => {
 /**
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
- * Calculates the ideal position of the container based on the `side` chosen and the size of
+ * @description Calculates the ideal position of the container based on the `side` chosen and the size of
  * the children component. The new `style` of the component will be returned.
  */
 const getIdealPosition = (side: TargetSide, anchorBounds: ClientRect, containerBounds: ClientRect) => {
@@ -135,7 +135,7 @@ export type TComponentTarget = {
 /**
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com> 
- * Returns a wrapped 'floating' element of the parameter component. This creates the possibility
+ * @description Returns a wrapped 'floating' element of the parameter component. This creates the possibility
  * for you to do a `.open()` in this component and it will render the component on the desired side.
  *
  * The main idea is to replace elements that need to be validated to be in the screen bounds, like

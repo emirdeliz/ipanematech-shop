@@ -1,3 +1,11 @@
+/**
+ * =========== (c) 2020 Emir Marques ===========
+ * @created on Mon Dec 23 2020
+ * @author Emir Marques - <emirdeliz@gmail.com>
+ * What is this file?
+ * This file is responsible for the homepage
+ * =============================================
+ */
 import React, { useEffect, useState } from 'react';
 import { useTranslate } from '@hooks/use-translate';
 import { useShopProduct } from '@hooks/use-shop-product';
@@ -13,10 +21,26 @@ const Home = () => {
   const t = useTranslate();
 
   useEffect(() => {
-    const hasAllSelected = selectedItems.length === products.length && !!products.length;
-    setSelectAll(hasAllSelected);
+    updateSelectedAll();
   }, [selectedItems]);
 
+  /**
+   * @created on Mon Dec 23 2020
+   * @author Emir Marques - <emirdeliz@gmail.com>
+   * @description This method is used to update the state of selecting all. 
+   * It is called when the list of selected products is updated 
+   */
+  const updateSelectedAll = () => {
+    const hasAllSelected = selectedItems.length === products.length && !!products.length;
+    setSelectAll(hasAllSelected);
+  }
+
+  /**
+   * @created on Mon Dec 23 2020
+   * @author Emir Marques - <emirdeliz@gmail.com>
+   * @description This method is used to add or remove a product number to the list of selected products 
+   * @param productNr: number product
+   */
   const onSelectedItem = (productNr: number) => {
     const isNew = !selectedItems.includes(productNr);
     if (isNew) {
@@ -26,6 +50,12 @@ const Home = () => {
     }
   }
 
+  /**
+   * @created on Mon Dec 23 2020
+   * @author Emir Marques - <emirdeliz@gmail.com>
+   * @description This method is used to add or remove all products to the list of selected products 
+   * @param selected: whether it is to include all products
+   */
   const onSelectAll = (selected: boolean) => {
     if (selected) {
       setSelectedItems(products.map(p => p.nr));

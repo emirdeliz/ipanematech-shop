@@ -15,7 +15,7 @@ import { ServerStyleSheet } from 'styled-components';
 /**
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
- * This method is responsible for injecting styled-components
+ * @description This method is responsible for injecting styled-components
  * @param ctx: application context
  */
 const _injectStyledComponents = async(ctx: DocumentContext) => {
@@ -55,7 +55,7 @@ interface IShopDocument {
 /**
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
- * This method is responsible for obtaining the initial props
+ * @description This method is responsible for obtaining the initial props
  */
 export default class ShopDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<IShopDocument> {

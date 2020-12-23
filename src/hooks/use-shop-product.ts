@@ -23,7 +23,7 @@ export const useShopProduct = (): IUseProduct => {
   /**
    * @created on Mon Dec 22 2020
    * @author Emir Marques - <emirdeliz@gmail.com> 
-   * This method is used to return the store related products that are in the repository
+   * @description This method is used to return the store related products that are in the repository
    */
   const findProducts = async () => {
     setLoading(true);
@@ -35,7 +35,7 @@ export const useShopProduct = (): IUseProduct => {
   /**
    * @created on Mon Dec 22 2020
    * @author Emir Marques - <emirdeliz@gmail.com> 
-   * This method is used to initialize the hook
+   * @description This method is used to initialize the hook
    */
   const initialize = async() => {
     const products = await findProducts();

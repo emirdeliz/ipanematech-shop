@@ -12,7 +12,7 @@ import mock from '../../__mock__/store-product.json';
 /**
  * @created on Mon Dec 22 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
- * TODO: This method should return items from the store when integrated with the API.
+ * @description TODO: This method should return items from the store when integrated with the API.
  */
 export const ShopProductsRepository = class {
   static findProducts: () => ShopProductModel[] = () => {

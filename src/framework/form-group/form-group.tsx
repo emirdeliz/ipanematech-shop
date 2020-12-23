@@ -43,7 +43,7 @@ const renderLabel = (label: ReactNode) => {
 /**
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com> 
- * This is a form component in which you put a label and some kind of
+ * @description This is a form component in which you put a label and some kind of
  * input component, be it anything: select, input, textarea, etc...
  *
  * You can specify if the form group is required and a label will get a red asterisk

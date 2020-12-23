@@ -13,7 +13,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": 2020,
     "sourceType": "module"
   },
   "plugins": [
@@ -26,5 +26,10 @@
     "@typescript-eslint/no-var-requires": "off",
     "react/display-name": "off",
     "react/prop-types": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

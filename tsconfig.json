@@ -23,6 +23,7 @@
       "@components/*": ["components/*"],
       "@system/*": ["system/*"],
       "@hooks/*": ["hooks/*"],
+      "@context/*": ["context/*"],
       "@i18n/*": ["i18n/*"],
       "@helpers/*": ["helpers/*"],
       "@api/*": ["api/*"],

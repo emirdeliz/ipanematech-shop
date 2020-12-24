@@ -36,6 +36,7 @@ module.exports = {
           '@components': path.resolve('src/components'),
           '@system': path.resolve('src/system'),
           '@hooks': path.resolve('src/hooks'),
+          '@context': path.resolve('src/context'),
           '@i18n': path.resolve('src/i18n'),
           '@helpers': path.resolve('src/helpers'),
           '@api': path.resolve('src/api'),

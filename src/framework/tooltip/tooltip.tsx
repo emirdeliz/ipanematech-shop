@@ -15,8 +15,7 @@ import React, {
   useRef,
   useImperativeHandle,
   ReactNode,
-  MutableRefObject,
-  ReactPropTypes
+  MutableRefObject
 } from 'react';
 import { withFloat, TComponentTarget } from '@framework/index';
 import { mobileMedia } from '@helpers/media-query';
@@ -67,10 +66,9 @@ const TooltipPopup = withFloat((props: ITooltipPopup): JSX.Element => {
       // then we modify the position of the arrow to follow the anchor.
       const isDiff = Math.abs(containerLeft - anchorLeft) >= 2;
       if (isDiff) {
-        setArrowLeftPosition(anchorLeft - containerLeft);
+        setArrowLeftPosition(anchorLeft - containerLeft + 10);
       } else {
         // The positions are aligned, we will center the arrow in the middle of the anchor element.
-
         const anchorWidth = props._floatingElementAnchor.getBoundingClientRect().width; // The element we're hovering
         const containerWidth = refContainer.current.getBoundingClientRect().width; // This is the title's width, the blue container
         if (anchorWidth > containerWidth) {
@@ -98,10 +96,10 @@ const TooltipPopup = withFloat((props: ITooltipPopup): JSX.Element => {
   );
 });
 
-interface ITooltip extends ReactPropTypes {
-  invisible: boolean;
+interface ITooltip  {
   children: ReactNode;
-  title: ReactNode,
+  title: ReactNode;
+  invisible?: boolean;
   style?: CSSProperties;
   hoverable?: boolean;
 }

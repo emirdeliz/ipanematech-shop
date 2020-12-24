@@ -7,6 +7,7 @@
  * ================================================
  */
 import React, { ReactNode } from 'react';
+import { CSSProperties } from 'styled-components';
 import {
   Table as TableStyle,
   THead as THeadStyle,
@@ -22,8 +23,9 @@ export enum ECellAlign {
 }
 
 interface ITd {
-  children: ReactNode,
-  alignContent?: ECellAlign
+  children: ReactNode;
+  alignContent?: ECellAlign;
+  style?: CSSProperties;
 }
 
 interface IRow {

@@ -141,7 +141,7 @@ export type TComponentTarget = {
  * The main idea is to replace elements that need to be validated to be in the screen bounds, like
  * dropdowns or tooltips.
  */
-const withFloat = (ComponentTarget: FunctionComponent<TComponentTarget>): ForwardRefExoticComponent<ReactPropTypes & RefAttributes<TReffedComponent>> => {
+const withFloat = (ComponentTarget: FunctionComponent<TComponentTarget>): ForwardRefExoticComponent<RefAttributes<TReffedComponent>> => {
   const ReffedComponent = (props: ReactPropTypes, ref: Ref<TReffedComponent>) => {
     const [anchor, setAnchor] = useState<HTMLElement>(null);
     const [opened, setOpened] = useState<boolean>(false);

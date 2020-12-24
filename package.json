@@ -8,8 +8,8 @@
     "start": "next start",
     "test": "jest --verbose=false --setupTestFrameworkScriptFile=./setupTest.js",
     "upgrade-libs": "ncu -u && yarn install",
-    "lint:ts": "eslint 'src/**/*.ts*'",
-    "lint:css":"stylelint 'src/**/*.tsx'",
+    "lint:ts": "eslint './src/**/*.{ts,tsx}*'",
+    "lint:css":"stylelint './src/**/*.tsx'",
     "lint":"yarn lint:ts && yarn lint:css"
   },
   "resolutions": {

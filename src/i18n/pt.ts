@@ -1,13 +1,6 @@
 import { ILocale } from './template';
 
 export const table: ILocale = {
-  locale: 'Português',
-  title: 'Next.js 10 + Rosetta com native i18n integração',
-  profile: {
-    button: 'Aperte aqui',
-  },
-  welcome: 'Bem vindo {{name}}! 😃', // with variable replacement
-
   home: {
     title: 'Teste de Frontend',
     culinar: {
@@ -19,7 +12,11 @@ export const table: ILocale = {
       nr: 'Nr. do item',
       price: 'Preço do Item',
       quantity: 'Quantidade',
-      total: 'Total'
+      total: 'Total',
+      quantityContainer: {
+        plus: 'Aumentar quantidade',
+        minus: 'Diminuir quantidade',
+      }
     }
   }
 };

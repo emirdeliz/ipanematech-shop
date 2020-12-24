@@ -1,11 +1,4 @@
 export interface ILocale {
-  locale: string;
-  title: string;
-  profile: {
-    button: string;
-  };
-  welcome: string;
-  
   home: {
     title: string;
     culinar: {
@@ -18,6 +11,10 @@ export interface ILocale {
       price: string;
       quantity: string;
       total: string;
+      quantityContainer: {
+        plus: string;
+        minus: string;
+      }
     }
   }
 }

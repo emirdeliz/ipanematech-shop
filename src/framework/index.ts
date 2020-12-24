@@ -10,3 +10,4 @@ export * from './label/label';
 export * from './floating-element/floating-element';
 export * from './tooltip/tooltip';
 export * from './table/table';
+export * from './button/button';

@@ -9,31 +9,43 @@
 import React, { ReactNode } from 'react';
 import { Button, Tooltip } from '@framework/index';
 import { useTranslate } from '@hooks/use-translate';
-import { useTableProduct } from '@hooks/use-table-product';
-import { StoreProductModel } from '@api/model/store-product-model';
 import IconPlus from '@assets/images/plus-circle.svg';
 import IconMinus from '@assets/images/minus-circle.svg';
 import TableStoreProductTbodyQuantityStyle from './table-store-product-tbody-quantity.style';
 
+/**
+ * @created on Mon Dec 23 2020
+ * @author Emir Marques - <emirdeliz@gmail.com> 
+ * @description these parameters are used to define the minimum and maximum 
+ * amount defined by the user
+ */
+const minQuantity = 0;
+const maxQuantity = 100;
+
 interface ITableStoreProductTbodyQuantity {
   children: ReactNode;
-  product: StoreProductModel;
+  quantity: number;
+  increaseQuantity: () => void;
+  decreaseQuantity: () => void;
 }
 
 export const TableStoreProductTbodyQuantity = (props: ITableStoreProductTbodyQuantity) => {
-  const { increaseQuantity, decreaseQuantity } = useTableProduct();
   const t = useTranslate();
-  const { children, product } = props;
+  const { children, quantity, increaseQuantity, decreaseQuantity } = props;
+
+  const disabledIncrease = quantity >= maxQuantity;
+  const disabledDecrease = quantity <= minQuantity;
+
   return(
     <TableStoreProductTbodyQuantityStyle>
-      <Tooltip title={t('home.tableStoreProduct.quantityContainer.plus')}>
-        <Button.Icon onClick={() => increaseQuantity(product)}>
+      <Tooltip title={t('home.tableStoreProduct.quantityContainer.plus')} invisible={disabledIncrease}>
+        <Button.Icon onClick={() => increaseQuantity()} disabled={disabledIncrease}>
           <IconPlus />
         </Button.Icon>
       </Tooltip>
       {children}
-      <Tooltip title={t('home.tableStoreProduct.quantityContainer.minus')}>
-        <Button.Icon onClick={() => decreaseQuantity(product)}>
+      <Tooltip title={t('home.tableStoreProduct.quantityContainer.minus')} invisible={disabledDecrease}>
+        <Button.Icon onClick={() => decreaseQuantity()} disabled={disabledDecrease}>
           <IconMinus />
         </Button.Icon>
       </Tooltip>

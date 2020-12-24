@@ -37,13 +37,13 @@ export const useShopProduct = (): IUseProduct => {
    * @author Emir Marques - <emirdeliz@gmail.com> 
    * @description This method is used to initialize the hook
    */
-  const initialize = async() => {
+  const _initialize = async() => {
     const products = await findProducts();
     setProducts(products);
   }
 
   useEffect(() => {
-    initialize();
+    _initialize();
   }, [])
   return { findProducts, products, loading };
 };

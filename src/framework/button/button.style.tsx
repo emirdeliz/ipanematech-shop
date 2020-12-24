@@ -10,6 +10,11 @@ import styled from 'styled-components';
 
 export const ButtonStyle = styled.button`
   outline: none;
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
 `;
 
 const buttonIconSize = 25;

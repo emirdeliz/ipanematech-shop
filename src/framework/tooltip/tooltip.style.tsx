@@ -29,7 +29,7 @@ const Arrow = styled.div<{ error?: boolean; left?: string; color?: string }>`
   position: absolute;
   bottom: -1px;
   display: inline-block;
-  left: 50%;
+  left: ${props => props.left}px;
   transform: translateX(-50%);
 
   &:before {

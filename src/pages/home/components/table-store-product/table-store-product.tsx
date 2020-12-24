@@ -8,14 +8,14 @@
  */
 import React from 'react';
 import { Table } from '@framework/index';
-import { ShopProductModel } from '@api/model/shop-product-model';
+import { StoreProductModel } from '@api/model/store-product-model';
 import {
   TableStoreProductTBody,
   TableStoreProductTHead
 } from './components';
 
 export interface ITableStoreProduct {
-  productOptions: Array<ShopProductModel>,
+  productOptions: Array<StoreProductModel>,
   selectedItems: Array<number>,
   onSelectedItem: (item: number) => void;
 }

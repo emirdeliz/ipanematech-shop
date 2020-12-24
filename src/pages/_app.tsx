@@ -15,7 +15,7 @@ import { GlobalStyles } from '@system/theme/global-styles';
 import { ITheme } from '@system/theme/theme';
 import '@assets/styles/globals.css';
 
-const Shop = ({ Component, pageProps }: AppProps): ReactNode => {
+const Store = ({ Component, pageProps }: AppProps): ReactNode => {
   const { theme } = useTheme();
   return (
     <ThemeProvider theme={theme as ITheme}>
@@ -27,4 +27,4 @@ const Shop = ({ Component, pageProps }: AppProps): ReactNode => {
   );
 }
 
-export default Shop;
+export default Store;

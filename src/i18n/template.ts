@@ -2,7 +2,7 @@ export interface ILocale {
   home: {
     title: string;
     culinar: {
-      shop: string;
+      store: string;
       tooltip: string;
     }
     tableStoreProduct: {

@@ -3,21 +3,21 @@
  * @created on Mon Dec 21 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
  * What is this file?
- * This hook is responsible for define the shop-product
+ * This hook is responsible for define the store-product
  * =============================================
  */
 import { useEffect, useState } from 'react';
-import { ShopProductsRepository } from '@api/repository/shop-product-repository';
-import { ShopProductModel } from '@api/model/shop-product-model';
+import { StoreProductsRepository } from '@api/repository/store-product-repository';
+import { StoreProductModel } from '@api/model/store-product-model';
 
 interface IUseProduct {
-  findProducts: () => Promise<Array<ShopProductModel>>;
-  products: Array<ShopProductModel>;
+  findProducts: () => Promise<Array<StoreProductModel>>;
+  products: Array<StoreProductModel>;
   loading: boolean;
 }
 
-export const useShopProduct = (): IUseProduct => {
-  const [products, setProducts] = useState<Array<ShopProductModel>>([]);
+export const useStoreProduct = (): IUseProduct => {
+  const [products, setProducts] = useState<Array<StoreProductModel>>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   /**
@@ -27,7 +27,7 @@ export const useShopProduct = (): IUseProduct => {
    */
   const findProducts = async () => {
     setLoading(true);
-    const result = ShopProductsRepository.findProducts();
+    const result = StoreProductsRepository.findProducts();
     setLoading(false);
     return result;
   }

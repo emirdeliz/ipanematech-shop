@@ -6,7 +6,7 @@
  * This component is responsible for the store's product
  * ================================================
  */
-export class ShopProductModel {
+export class StoreProductModel {
   private _name: string = '';
   private _nr: number = 0;
   private _price: number = 0;

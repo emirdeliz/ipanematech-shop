@@ -6,22 +6,22 @@
  * This component is responsible for the store's table product
  * ================================================
  */
-import { ShopProductModel } from "./shop-product-model";
+import { StoreProductModel } from "./store-product-model";
 
 export class TableProductModel {
-  private _product: ShopProductModel;
+  private _product: StoreProductModel;
   private _quantity: number = 0;
 
-  constructor(product: ShopProductModel, quantity: number) {
+  constructor(product: StoreProductModel, quantity: number) {
     this._product = product;
     this._quantity = quantity;
   }
 
-  get product(): ShopProductModel {
+  get product(): StoreProductModel {
     return this._product;
   }
 
-  set product(product: ShopProductModel) {
+  set product(product: StoreProductModel) {
     this._product = product;
   }
 

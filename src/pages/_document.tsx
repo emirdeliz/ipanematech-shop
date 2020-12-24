@@ -46,7 +46,7 @@ const _injectStyledComponents = async(ctx: DocumentContext) => {
   }
 }
 
-interface IShopDocument {
+interface IStoreDocument {
   styles: JSX.Element;
   html: string;
   head?: JSX.Element[];
@@ -57,8 +57,8 @@ interface IShopDocument {
  * @author Emir Marques - <emirdeliz@gmail.com>
  * @description This method is responsible for obtaining the initial props
  */
-export default class ShopDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext): Promise<IShopDocument> {
+export default class StoreDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext): Promise<IStoreDocument> {
     return await _injectStyledComponents(ctx);
   }
 }

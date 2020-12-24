@@ -4,7 +4,7 @@ export const table: ILocale = {
   home: {
     title: 'Teste de Frontend',
     culinar: {
-      shop: 'Loja de Culinária',
+      store: 'Loja de Culinária',
       tooltip: 'Selecionar todos os itens da loja'
     },
     tableStoreProduct: {

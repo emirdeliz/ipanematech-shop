@@ -24,7 +24,7 @@ export const SelectAllProduct = (props: ISelectAllProduct): JSX.Element => {
       <Tooltip title={t('home.culinar.tooltip')}>
         <InputCheckboxFormGroup
           checked={selectAll}
-          label={t('home.culinar.shop')}
+          label={t('home.culinar.store')}
           onChange={(e) => onSelectAll(e.target.checked)}
         />
       </Tooltip>

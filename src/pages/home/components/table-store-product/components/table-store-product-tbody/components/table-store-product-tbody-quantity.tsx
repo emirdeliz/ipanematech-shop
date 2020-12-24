@@ -10,14 +10,14 @@ import React, { ReactNode } from 'react';
 import { Button, Tooltip } from '@framework/index';
 import { useTranslate } from '@hooks/use-translate';
 import { useTableProduct } from '@hooks/use-table-product';
-import { ShopProductModel } from '@api/model/shop-product-model';
+import { StoreProductModel } from '@api/model/store-product-model';
 import IconPlus from '@assets/images/plus-circle.svg';
 import IconMinus from '@assets/images/minus-circle.svg';
 import TableStoreProductTbodyQuantityStyle from './table-store-product-tbody-quantity.style';
 
 interface ITableStoreProductTbodyQuantity {
   children: ReactNode;
-  product: ShopProductModel;
+  product: StoreProductModel;
 }
 
 export const TableStoreProductTbodyQuantity = (props: ITableStoreProductTbodyQuantity) => {

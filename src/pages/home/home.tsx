@@ -9,6 +9,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslate } from '@hooks/use-translate';
 import { useStoreProduct } from '@hooks/use-store-product';
+import { StoreProvider } from '@context/store-context';
 import { Body, Title } from '@framework/index';
 import { TableStoreProduct } from './components/table-store-product/table-store-product';
 import { SelectAllProduct } from './components/select-all-product/select-all-product';
@@ -72,11 +73,13 @@ const Home = () => {
           selectAll={selectAll}
           onSelectAll={onSelectAll}
         />
-        <TableStoreProduct
-          productOptions={products}
-          selectedItems={selectedItems}
-          onSelectedItem={onSelectedItem} 
-        />
+        <StoreProvider>
+          <TableStoreProduct
+            productOptions={products}
+            selectedItems={selectedItems}
+            onSelectedItem={onSelectedItem} 
+          />
+        </StoreProvider>
       </HomeContainer>
     </Body>
   );

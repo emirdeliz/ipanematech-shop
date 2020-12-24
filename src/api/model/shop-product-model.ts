@@ -3,7 +3,7 @@
  * @created on Mon Dec 22 2020
  * @author Emir Marques - <emirdeliz@gmail.com>
  * What is this file?
- * This component is responsible for the store's product model
+ * This component is responsible for the store's product
  * ================================================
  */
 export class ShopProductModel {

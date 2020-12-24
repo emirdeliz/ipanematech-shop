@@ -28,7 +28,7 @@ const Home = () => {
    * @created on Mon Dec 23 2020
    * @author Emir Marques - <emirdeliz@gmail.com>
    * @description This method is used to update the state of selecting all. 
-   * It is called when the list of selected products is updated 
+   * It is called when the list of selected products is updated.
    */
   const updateSelectedAll = () => {
     const hasAllSelected = selectedItems.length === products.length && !!products.length;

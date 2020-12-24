@@ -17,9 +17,9 @@ interface ILabelStoreProduct {
 }
 
 export const LabelStoreProduct = (props: ILabelStoreProduct) => {
-  const { children } = props;
+  const { children, style } = props;
   return (
-    <Label size={ELabelSize.small}>
+    <Label size={ELabelSize.small} style={style}>
       {children}
     </Label>
   );

@@ -11,6 +11,7 @@ import { useTranslate } from '@hooks/use-translate';
 import { Table, ECellAlign } from '@framework/index';
 import { LabelStoreProduct } from '..';
 
+const cellQuantitySize = 150;
 export const TableStoreProductTHead = () => {
   const t = useTranslate();
   return (
@@ -25,7 +26,7 @@ export const TableStoreProductTHead = () => {
         <Table.Th alignContent={ECellAlign.right}>
           <LabelStoreProduct.Bold>{t('home.tableStoreProduct.price')}</LabelStoreProduct.Bold>
         </Table.Th>
-        <Table.Th alignContent={ECellAlign.right}>
+        <Table.Th alignContent={ECellAlign.right} style={{ width: cellQuantitySize }}>
           <LabelStoreProduct.Bold>{t('home.tableStoreProduct.quantity')}</LabelStoreProduct.Bold>
         </Table.Th>
         <Table.Th alignContent={ECellAlign.right}>

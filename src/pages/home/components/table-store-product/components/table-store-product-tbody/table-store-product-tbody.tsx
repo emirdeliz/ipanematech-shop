@@ -8,17 +8,22 @@
  */
 import React from 'react';
 import { InputCheckboxFormGroup, Table, ECellAlign } from '@framework/index';
+import { useTableProduct } from '@hooks/use-table-product';
 import { TableStoreProductIcon, LabelStoreProduct } from '..';
 import { ITableStoreProduct } from '../../table-store-product';
 import { ProductNameContainer } from './table-store-product-tbody.style';
+import { TableStoreProductTbodyQuantity } from './components/table-store-product-tbody-quantity';
 
 export const TableStoreProductTBody = (props: ITableStoreProduct) => {
+  const { findProductQuantityByProduct } = useTableProduct();
   const { selectedItems, productOptions, onSelectedItem } = props;
   return (
     <Table.TBody>
       {productOptions.map((p, index) => {
         const { name, nr, price, icon, unit } = p;
+        const quantityTable = findProductQuantityByProduct(p);
         const isSelected = selectedItems.includes(nr);
+        
         return (
           <Table.Row key={index}>
             <Table.Td>
@@ -43,10 +48,12 @@ export const TableStoreProductTBody = (props: ITableStoreProduct) => {
               <LabelStoreProduct>{price} €/{unit}</LabelStoreProduct>
             </Table.Td>
             <Table.Td alignContent={ECellAlign.right}>
-              <LabelStoreProduct>{p.price} {unit}</LabelStoreProduct>
+              <TableStoreProductTbodyQuantity product={p}>
+                <LabelStoreProduct>{quantityTable} {unit}</LabelStoreProduct>
+              </TableStoreProductTbodyQuantity>
             </Table.Td>
             <Table.Td alignContent={ECellAlign.right}>
-              <LabelStoreProduct.Bold>{p.price} €</LabelStoreProduct.Bold>
+              <LabelStoreProduct.Bold>{quantityTable * p.price} €</LabelStoreProduct.Bold>
             </Table.Td>
           </Table.Row>
         );

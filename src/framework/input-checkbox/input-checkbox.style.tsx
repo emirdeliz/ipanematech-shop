@@ -9,10 +9,14 @@
 import styled from 'styled-components';
 import { EBorderRadius } from '@system/theme/border-radius';
 
-export const InputCheckboxContainer = styled.div`
+export const InputCheckboxContainer = styled.div<{ disabled?: boolean}>`
   display: flex;
   flex-direction: row;
   align-items: center;
+  ${props => props.disabled ? `
+    pointer-events: none;
+    opacity: 0.3;
+  `: ''}
 
   @keyframes toggleOnCheckbox {
     0% {
@@ -35,12 +39,14 @@ const inputCheckboxSize = 16;
 const inputCheckboxBorderRadius = inputCheckboxSize / 4;
 export const InputCheckbox = styled.input.attrs(() => ({
   type: 'checkbox',
+  className: ''
 }))`
   position: relative;
   appearance: none;
   outline: none;
   box-sizing: content-box;
   overflow: hidden;
+  cursor: pointer;
 
   &:before {
     content: '';

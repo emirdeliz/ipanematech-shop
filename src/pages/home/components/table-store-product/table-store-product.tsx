@@ -8,22 +8,21 @@
  */
 import React from 'react';
 import { Table } from '@framework/index';
+import { TableStoreProductTHead, TableStoreProductTBody } from './components';
 import { StoreProductModel } from '@api/model/store-product-model';
-import {
-  TableStoreProductTBody,
-  TableStoreProductTHead
-} from './components';
+import { StoreProductCartModel } from '@api/model/store-product-cart-model';
 
 export interface ITableStoreProduct {
-  productOptions: Array<StoreProductModel>,
-  selectedItems: Array<number>,
-  onSelectedItem: (item: number) => void;
+  products: Array<StoreProductModel|StoreProductCartModel>
+  allowSelect?: boolean;
+  allowControls?: boolean;
+  allowRemove?: boolean;
 }
 
 export const TableStoreProduct = (props: ITableStoreProduct) => {
   return (
     <Table>
-      <TableStoreProductTHead />
+      <TableStoreProductTHead {...props} />
       <TableStoreProductTBody {...props} />
     </Table>
   );

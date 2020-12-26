@@ -12,11 +12,12 @@ import { InputCheckbox as Component, InputCheckboxContainer } from './input-chec
 
 export interface IInputCheckbox extends IInput {
   checked?: boolean;
+  disabled?: boolean;
 }
 
 export const InputCheckbox = memo(forwardRef((props: IInputCheckbox, ref: MutableRefObject<HTMLInputElement>) => {
   return (
-    <InputCheckboxContainer>
+    <InputCheckboxContainer disabled={props.disabled}>
       <Component
         {...props}
         ref={ref} 

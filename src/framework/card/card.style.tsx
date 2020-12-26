@@ -15,10 +15,5 @@ export const Body = styled.div`
   height: 100%;
   width: 100%;
   padding: ${EPadding.xLarge};
-  background-color: ${props => props.theme.bodyBackgroundColor};
   display: flex;
-
-  @media only screen and (max-width: 600px) {
-    padding: ${EPadding.small};
-  }
 `;

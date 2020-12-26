@@ -9,11 +9,10 @@
 import styled from 'styled-components';
 import { EMargin } from '@system/theme/margin';
 
-const InputCheckboxFormGroupStyle = styled.div`
-  label {
-    cursor: pointer;
+const InputCheckboxFormGroupStyle = styled.div<{ disabled?: boolean}>`
+  * {
+    cursor: ${props => props.disabled ? 'default' : 'pointer'};
   }
-  
   input[type='checkbox'] {
     margin-right: ${EMargin.xSmall};
   }

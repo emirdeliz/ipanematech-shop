@@ -15,28 +15,73 @@ export enum EThemeType {
 }
 
 export interface ITheme {
+  // Body
   bodyBackgroundColor: ELightColors|EDarkColors,
+  // Input
   inputCheckboxBorderColor: ELightColors|EDarkColors,
   inputCheckboxBrandColor: ELightColors|EDarkColors,
+  // Tooltip
   tooltipBackgroundColor: ELightColors|EDarkColors,
   tooltipTextColor: ELightColors|EDarkColors,
-  tableBorderColor: ELightColors|EDarkColors
+  // Table
+  tableBorderColor: ELightColors|EDarkColors,
+  tableBackgroundColor: ELightColors|EDarkColors,
+  // Buttons
+  buttonPrimaryBackgroundColor:ELightColors|EDarkColors,
+  buttonPrimaryHoverBackgroundColor:ELightColors|EDarkColors,
+  buttonPrimaryBorderColor: ELightColors|EDarkColors,
+  buttonPrimaryColor: ELightColors|EDarkColors,
+  // Hr
+  hrBorderColor: ELightColors|EDarkColors,
+  // Pages
+  homeCardOrderTotalBackgroundColor: ELightColors|EDarkColors,
+  homeCardOrderTotalBorderColor: ELightColors|EDarkColors,
 } 
 
 export const LightTheme: ITheme = {
+  // Body
   bodyBackgroundColor: ELightColors.bodyBackgroundColor,
+  // Input
   inputCheckboxBorderColor: ELightColors.inputCheckboxBorderColor,
   inputCheckboxBrandColor: ELightColors.inputCheckboxBrandColor,
+  // Tooltip
   tooltipBackgroundColor: ELightColors.tooltipBackgroundColor,
   tooltipTextColor: ELightColors.tooltipTextColor,
-  tableBorderColor: ELightColors.tableBorderColor
+  // Table
+  tableBorderColor: ELightColors.tableBorderColor,
+  tableBackgroundColor: ELightColors.tableBackgroundColor,
+  // Buttons
+  buttonPrimaryBackgroundColor: ELightColors.buttonPrimaryBackgroundColor,
+  buttonPrimaryHoverBackgroundColor: ELightColors.buttonPrimaryHoverBackgroundColor,
+  buttonPrimaryBorderColor: ELightColors.buttonPrimaryBorderColor,
+  buttonPrimaryColor: ELightColors.buttonPrimaryColor,
+  // Hr
+  hrBorderColor: ELightColors.hrBorderColor,
+  // Pages
+  homeCardOrderTotalBackgroundColor: ELightColors.homeCardOrderTotalBackgroundColor,
+  homeCardOrderTotalBorderColor: ELightColors.homeCardOrderTotalBorderColor
 }
 
 export const DarkTheme: ITheme = {
+  // Body
   bodyBackgroundColor: EDarkColors.bodyBackgroundColor,
+  // Input
   inputCheckboxBorderColor: EDarkColors.inputCheckboxBorderColor,
   inputCheckboxBrandColor: EDarkColors.inputCheckboxBrandColor,
+  // Tooltip
   tooltipBackgroundColor: EDarkColors.tooltipBackgroundColor,
   tooltipTextColor: EDarkColors.tooltipTextColor,
-  tableBorderColor: EDarkColors.tableBorderColor
+  // Table
+  tableBorderColor: EDarkColors.tableBorderColor,
+  tableBackgroundColor: EDarkColors.tableBackgroundColor,
+  // Buttons
+  buttonPrimaryBackgroundColor: EDarkColors.buttonPrimaryBackgroundColor,
+  buttonPrimaryHoverBackgroundColor: EDarkColors.buttonPrimaryHoverBackgroundColor,
+  buttonPrimaryBorderColor: EDarkColors.buttonPrimaryBorderColor,
+  buttonPrimaryColor: EDarkColors.buttonPrimaryColor,
+  // Hr
+  hrBorderColor: EDarkColors.hrBorderColor,
+  // Pages
+  homeCardOrderTotalBackgroundColor: EDarkColors.homeCardOrderTotalBackgroundColor,
+  homeCardOrderTotalBorderColor: EDarkColors.homeCardOrderTotalBorderColor,
 }

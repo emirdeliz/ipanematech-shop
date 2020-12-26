@@ -19,11 +19,12 @@ import {
 
 export enum ECellAlign {
   left = 'left',
-  right = 'right'
+  right = 'right',
+  center = 'center'
 }
 
 interface ITd {
-  children: ReactNode;
+  children?: ReactNode;
   alignContent?: ECellAlign;
   style?: CSSProperties;
 }

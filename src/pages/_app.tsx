@@ -13,6 +13,7 @@ import { ThemeProvider } from 'styled-components';
 import { useTheme } from '@hooks/use-theme';
 import { GlobalStyles } from '@system/theme/global-styles';
 import { ITheme } from '@system/theme/theme';
+import { Body } from '@framework/index'; 
 import '@assets/styles/globals.css';
 
 const Store = ({ Component, pageProps }: AppProps): ReactNode => {
@@ -21,7 +22,9 @@ const Store = ({ Component, pageProps }: AppProps): ReactNode => {
     <ThemeProvider theme={theme as ITheme}>
       <I18nProvider table={pageProps.table}>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <Body>
+          <Component {...pageProps} />
+        </Body>
       </I18nProvider>
     </ThemeProvider>
   );

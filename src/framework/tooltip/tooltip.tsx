@@ -187,7 +187,7 @@ export const Tooltip = memo(forwardRef((props: ITooltip, ref: MutableRefObject<T
         onMouseMove={() => !isMobile && open()}
         onMouseDown={(e) => !isMobile && e.stopPropagation()} // To not close the tooltip when clicking
         ref={refDivContents}
-        style={{ ...style, display: 'inline-block' }}
+        style={{ ...style, display: 'flex' }}
       >
         {children}
       </div>

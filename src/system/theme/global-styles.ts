@@ -11,11 +11,13 @@ import { ITheme } from './theme';
 export const GlobalStyles = createGlobalStyle<{ theme: ITheme }>`
   html, body, #__next {
     height: 100%;
+    width: 100%;
+    clear: both;
   }
 
   body {
-    background: ${({ theme }) => theme.body};
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
     transition: all 0.50s linear;
+    position: fixed;
   }
 `;

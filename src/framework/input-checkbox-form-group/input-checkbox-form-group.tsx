@@ -14,16 +14,20 @@ interface IInputCheckboxFormGroup {
   label: ReactNode;
   checked?: boolean;
   noMargin?: boolean;
+  disabled?: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const InputCheckboxFormGroup = memo((props: IInputCheckboxFormGroup) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const { label, checked, noMargin, onChange } = props;
+  const { label, checked, noMargin, disabled, onChange } = props;
   return (
-    <InputCheckboxFormGroupStyle onClick={() => inputRef.current.click()}>
+    <InputCheckboxFormGroupStyle
+      disabled={disabled}
+      onClick={disabled ? null : () => inputRef.current.click()}
+    >
       <FormGroup label={label} direction={FormGroupDirection.row} noMargin={noMargin}>
-        <InputCheckbox ref={inputRef} checked={checked} onChange={onChange} />
+        <InputCheckbox ref={inputRef} checked={checked} disabled={disabled} onChange={onChange} />
       </FormGroup>
     </InputCheckboxFormGroupStyle>
   );

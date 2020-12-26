@@ -8,7 +8,14 @@
  */
 import styled from 'styled-components';
 import { EFontSize } from '@system/theme/font-size';
+import { EMargin } from '@system/theme/margin';
 
-export const TitleStyle = styled.h1`
+export const TitleStyle = styled.h3<{ noMargin?: boolean}>`
   font-size: ${EFontSize.xLarge};
+  margin: 0 0 ${props => props.noMargin ? 0 :EMargin.small};
+`;
+
+export const TitleSmallStyle = styled.h6<{ noMargin?: boolean}>`
+  font-size: ${EFontSize.large};
+  margin: 0 0 ${props => props.noMargin ? 0 :EMargin.xSmall};
 `;

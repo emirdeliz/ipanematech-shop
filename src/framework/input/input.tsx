@@ -6,8 +6,8 @@
  * This file is responsible for defining the input.
  * ================================================
  */
-import { ChangeEventHandler, HTMLAttributes } from 'react';
+import { ChangeEventHandler } from 'react';
 
-export interface IInput extends HTMLAttributes<HTMLInputElement> {
+export interface IInput {
   onChange: ChangeEventHandler<HTMLInputElement>;
 }

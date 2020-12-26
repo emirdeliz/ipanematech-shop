@@ -6,82 +6,30 @@
  * This file is responsible for the homepage
  * =============================================
  */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useTranslate } from '@hooks/use-translate';
-import { useStoreProduct } from '@hooks/use-store-product';
 import { StoreProvider } from '@context/store-context';
-import { Body, Title } from '@framework/index';
-import { TableStoreProduct } from './components/table-store-product/table-store-product';
+import { Title } from '@framework/index';
+import { ButtonAddProduct } from './components/button-add-product/button-add-product';
+import { StoreProduct } from './components/store-product/store-product';
 import { SelectAllProduct } from './components/select-all-product/select-all-product';
+import { ShoppingCart } from './components/shopping-cart/shopping-cart';
+import { OrderTotal } from './components/order-total/order-total';
 import { HomeContainer } from './home.style';
 
 const Home = () => {
-  const [selectAll, setSelectAll] = useState<boolean>(false);
-  const [selectedItems, setSelectedItems] = useState<Array<number>>([]);
-  const { products } = useStoreProduct();
   const t = useTranslate();
-
-  useEffect(() => {
-    updateSelectedAll();
-  }, [selectedItems]);
-
-  /**
-   * @created on Mon Dec 23 2020
-   * @author Emir Marques - <emirdeliz@gmail.com>
-   * @description This method is used to update the state of selecting all. 
-   * It is called when the list of selected products is updated.
-   */
-  const updateSelectedAll = () => {
-    const hasAllSelected = selectedItems.length === products.length && !!products.length;
-    setSelectAll(hasAllSelected);
-  }
-
-  /**
-   * @created on Mon Dec 23 2020
-   * @author Emir Marques - <emirdeliz@gmail.com>
-   * @description This method is used to add or remove a product number to the list of selected products 
-   * @param productNr: number product
-   */
-  const onSelectedItem = (productNr: number) => {
-    const isNew = !selectedItems.includes(productNr);
-    if (isNew) {
-      setSelectedItems([productNr, ...selectedItems]);
-    } else {
-      setSelectedItems(selectedItems.filter(nr => nr !== productNr));
-    }
-  }
-
-  /**
-   * @created on Mon Dec 23 2020
-   * @author Emir Marques - <emirdeliz@gmail.com>
-   * @description This method is used to add or remove all products to the list of selected products 
-   * @param selected: whether it is to include all products
-   */
-  const onSelectAll = (selected: boolean) => {
-    if (selected) {
-      setSelectedItems(products.map(p => p.nr));
-    } else {
-      setSelectedItems([]);
-    }
-  }
-
   return (
-    <Body>
-      <HomeContainer>
-        <Title>{t('home.title')}</Title>
-        <SelectAllProduct
-          selectAll={selectAll}
-          onSelectAll={onSelectAll}
-        />
-        <StoreProvider>
-          <TableStoreProduct
-            productOptions={products}
-            selectedItems={selectedItems}
-            onSelectedItem={onSelectedItem} 
-          />
-        </StoreProvider>
-      </HomeContainer>
-    </Body>
+    <HomeContainer>
+      <Title>{t('home.title')}</Title>
+      <StoreProvider>
+        <SelectAllProduct />
+        <StoreProduct />
+        <ButtonAddProduct />
+        <ShoppingCart />
+        <OrderTotal />
+      </StoreProvider>
+    </HomeContainer>
   );
 }
 

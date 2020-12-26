@@ -7,6 +7,7 @@
  * =============================================
  */
 export enum EFontSize {
+  xSmall = '.75rem',
   small = '0.8rem',
   normal = '0.9rem',
   large = '1.1rem',

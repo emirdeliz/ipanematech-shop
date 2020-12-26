@@ -25,30 +25,35 @@ const maxQuantity = 100;
 interface ITableStoreProductTbodyQuantity {
   children: ReactNode;
   quantity: number;
+  hideControls?: boolean;
   increaseQuantity: () => void;
   decreaseQuantity: () => void;
 }
 
 export const TableStoreProductTbodyQuantity = (props: ITableStoreProductTbodyQuantity) => {
   const t = useTranslate();
-  const { children, quantity, increaseQuantity, decreaseQuantity } = props;
+  const { children, quantity, hideControls, increaseQuantity, decreaseQuantity } = props;
 
   const disabledIncrease = quantity >= maxQuantity;
   const disabledDecrease = quantity <= minQuantity;
 
   return(
-    <TableStoreProductTbodyQuantityStyle>
-      <Tooltip title={t('home.tableStoreProduct.quantityContainer.plus')} invisible={disabledIncrease}>
-        <Button.Icon onClick={() => increaseQuantity()} disabled={disabledIncrease}>
-          <IconPlus />
-        </Button.Icon>
-      </Tooltip>
+    <TableStoreProductTbodyQuantityStyle hideControls={hideControls}>
+      {!hideControls && (
+        <Tooltip title={t('home.tableStoreProduct.quantityContainer.plus')} invisible={disabledIncrease}>
+          <Button.Icon onClick={() => increaseQuantity()} disabled={disabledIncrease}>
+            <IconPlus />
+          </Button.Icon>
+        </Tooltip>
+      )}
       {children}
-      <Tooltip title={t('home.tableStoreProduct.quantityContainer.minus')} invisible={disabledDecrease}>
-        <Button.Icon onClick={() => decreaseQuantity()} disabled={disabledDecrease}>
-          <IconMinus />
-        </Button.Icon>
-      </Tooltip>
+      {!hideControls && (
+        <Tooltip title={t('home.tableStoreProduct.quantityContainer.minus')} invisible={disabledDecrease}>
+          <Button.Icon onClick={() => decreaseQuantity()} disabled={disabledDecrease}>
+            <IconMinus />
+          </Button.Icon>
+        </Tooltip>
+      )}
     </TableStoreProductTbodyQuantityStyle>
   );
 }

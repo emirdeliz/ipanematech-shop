@@ -1,6 +1,7 @@
 export * from './body/body.style';
 export * from './img/img.style';
 export * from './form-control/form-control.style';
+export * from './division/division.style';
 export * from './title/title';
 export * from './form-group/form-group';
 export * from './input/input';

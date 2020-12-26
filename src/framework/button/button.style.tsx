@@ -7,9 +7,13 @@
  * ================================================
  */
 import styled from 'styled-components';
+import { EBorderRadius } from '@system/theme/border-radius';
+import { EFontSize } from '@system/theme/font-size';
+import { EPadding } from '@system/theme/padding';
 
-export const ButtonStyle = styled.button`
+const ButtonBaseStyle = styled.button`
   outline: none;
+  cursor: pointer;
 
   &:disabled {
     pointer-events: none;
@@ -17,14 +21,26 @@ export const ButtonStyle = styled.button`
   }
 `;
 
+export const ButtonStyle = styled(ButtonBaseStyle)`
+  padding: ${EPadding.xSmall};
+  font-size: ${EFontSize.small};
+  border-radius: ${EBorderRadius.normal};
+  border-color: ${props => props.theme.buttonPrimaryBorderColor};
+  background-color: ${props => props.theme.buttonPrimaryBackgroundColor};
+  color: ${props => props.theme.buttonPrimaryColor};
+  
+  &:hover {
+    background-color: ${props => props.theme.buttonPrimaryHoverBackgroundColor};
+  }
+`;
+
 const buttonIconSize = 25;
-export const ButtonIconStyle = styled(ButtonStyle)`
+export const ButtonIconStyle = styled(ButtonBaseStyle)`
   padding: 0;
   height: ${buttonIconSize}px;
   width: ${buttonIconSize}px;
   border: none;
   background-color: transparent;
-  cursor: pointer;
   border-radius: 50%;
 
   &:hover {

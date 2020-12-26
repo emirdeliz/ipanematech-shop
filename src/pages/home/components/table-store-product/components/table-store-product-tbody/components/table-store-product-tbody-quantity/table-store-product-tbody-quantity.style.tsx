@@ -8,10 +8,10 @@
  */
 import styled from 'styled-components';
 
-const TableStoreProductTbodyQuantityStyle = styled.div`
+const TableStoreProductTbodyQuantityStyle = styled.div<{ hideControls?: boolean }>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${props => props.hideControls ? 'flex-end' : 'space-between'};
 `;
 
 export default TableStoreProductTbodyQuantityStyle;

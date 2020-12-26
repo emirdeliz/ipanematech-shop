@@ -8,26 +8,36 @@
  */
 import React from 'react';
 import { useTranslate } from '@hooks/use-translate';
+import { useStoreProduct } from '@hooks/use-store-product';
+import { Consumer as StoreConsumer } from '@context/store-context';
 import { Tooltip, InputCheckboxFormGroup } from '@framework/index';
 import { SelectAllProductStyle } from './select-all-product.style';
 
-interface ISelectAllProduct {
-  selectAll: boolean;
-  onSelectAll: (selected: boolean) => void;
-}
-
-export const SelectAllProduct = (props: ISelectAllProduct): JSX.Element => {
+export const SelectAllProduct = (): JSX.Element => {
   const t = useTranslate();
-  const { selectAll, onSelectAll } = props;
+  const { products } = useStoreProduct();
+
   return (
-    <SelectAllProductStyle>
-      <Tooltip title={t('home.culinar.tooltip')}>
-        <InputCheckboxFormGroup
-          checked={selectAll}
-          label={t('home.culinar.store')}
-          onChange={(e) => onSelectAll(e.target.checked)}
-        />
-      </Tooltip>
-    </SelectAllProductStyle>
+    <StoreConsumer>
+      {({ selectProductAll, productSelected }) => {
+        /**
+         * @created on Mon Dec 23 2020
+         * @author Emir Marques - <emirdeliz@gmail.com>
+         * @description This variable is used to update the state of selecting all. 
+         */
+        const isSelectedAll = productSelected.length === products.length;
+        return (
+          <SelectAllProductStyle>
+            <Tooltip title={t('home.culinar.tooltip')}>
+              <InputCheckboxFormGroup
+                checked={isSelectedAll}
+                label={t('home.culinar.store')}
+                onChange={(e) => selectProductAll(e.target.checked, products)}
+              />
+            </Tooltip>
+          </SelectAllProductStyle>
+        );
+      }}
+    </StoreConsumer>
   );
 }

@@ -7,15 +7,20 @@
  * ================================================
  */
 import React, { CSSProperties, memo, ReactNode } from 'react';
-import { TitleStyle } from './title.style';
+import { TitleStyle, TitleSmallStyle } from './title.style';
 
 interface ITitle {
   children: ReactNode;
+  noMargin?: boolean;
   style?: CSSProperties;
 }
 
 export const Title = memo((props: ITitle) => (
   <TitleStyle {...props}>{props.children}</TitleStyle>
+));
+
+export const TitleSmall = memo((props: ITitle) => (
+  <TitleSmallStyle {...props}>{props.children}</TitleSmallStyle>
 ));
 
 Title.displayName = 'title';

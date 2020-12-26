@@ -11,10 +11,16 @@ import { useTranslate } from '@hooks/use-translate';
 import { Table, ECellAlign } from '@framework/index';
 import { LabelStoreProduct } from '..';
 
+interface ITableStoreProductTHead {
+  allowRemove?: boolean;
+  allowControls?: boolean;
+}
+
 const cellQuantitySize = 200;
 const cellTotalSize = 150;
-export const TableStoreProductTHead = () => {
+export const TableStoreProductTHead = (props: ITableStoreProductTHead) => {
   const t = useTranslate();
+  const { allowControls, allowRemove } = props;
   return (
     <Table.THead>
       <Table.Row>
@@ -27,12 +33,13 @@ export const TableStoreProductTHead = () => {
         <Table.Th alignContent={ECellAlign.right}>
           <LabelStoreProduct.Bold>{t('home.tableStoreProduct.price')}</LabelStoreProduct.Bold>
         </Table.Th>
-        <Table.Th alignContent={ECellAlign.right} style={{ width: cellQuantitySize }}>
+        <Table.Th alignContent={allowControls ? ECellAlign.center : ECellAlign.right} style={{ width: cellQuantitySize }}>
           <LabelStoreProduct.Bold>{t('home.tableStoreProduct.quantity')}</LabelStoreProduct.Bold>
         </Table.Th>
         <Table.Th alignContent={ECellAlign.right} style={{ width: cellTotalSize }}>
           <LabelStoreProduct.Bold>{t('home.tableStoreProduct.total')}</LabelStoreProduct.Bold>
         </Table.Th>
+        {allowRemove && <Table.Th />}
       </Table.Row>
     </Table.THead>
   );
